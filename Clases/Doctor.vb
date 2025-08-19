@@ -1,11 +1,14 @@
 ﻿Public Class Doctor
-    Private Nombre As String
-    Private Apellidos As String
-    Private FechaNacimiento As Date
-    Private Edad As Integer
-    Private Telefono As String
-    Private Direccion As String
+    ' Atributos privados
+    Private IdDc As Integer
+    Private NombreDc As String
+    Private ApellidosDc As String
+    Private EdadDc As Integer
+    Private TelefonoDc As String
+    Private DireccionDc As String
+    Private CorreoDc As String
     Private Especialidad As String
+    Private Experiencia As Integer
 
 
 
@@ -13,71 +16,79 @@
         ' Constructor vacío
     End Sub
 
-
-    ' Constructor
-    Public Sub New(nombre As String, apellidos As String, fechaNacimiento As Date, edad As Integer, telefono As String, direccion As String, especialidad As String)
-        Me.Nombre = nombre
-        Me.Apellidos = apellidos
-        Me.FechaNacimiento = fechaNacimiento
-        Me.Edad = edad
-        Me.Telefono = telefono
-        Me.Direccion = direccion
-        Me.Especialidad = especialidad
+    ' Constructor con parámetros
+    Public Sub New(idDc As Integer, nombreDc As String, apellidosDc As String, edadDc As Integer, telefonoDc As String, direccionDc As String, correoDc As String, especialidad As String, experiencia As Integer)
+        Me.IdDc1 = idDc
+        Me.NombreDc1 = nombreDc
+        Me.ApellidosDc1 = apellidosDc
+        Me.EdadDc1 = edadDc
+        Me.TelefonoDc1 = telefonoDc
+        Me.DireccionDc1 = direccionDc
+        Me.CorreoDc1 = correoDc
+        Me.Especialidad1 = especialidad
+        Me.Experiencia1 = experiencia
     End Sub
 
-
-
-    Public Property Nombre1 As String
+    Public Property IdDc1 As Integer
         Get
-            Return Nombre
-        End Get
-        Set(value As String)
-            Nombre = value
-        End Set
-    End Property
-
-    Public Property Apellidos1 As String
-        Get
-            Return Apellidos
-        End Get
-        Set(value As String)
-            Apellidos = value
-        End Set
-    End Property
-
-    Public Property FechaNacimiento1 As Date
-        Get
-            Return FechaNacimiento
-        End Get
-        Set(value As Date)
-            FechaNacimiento = value
-        End Set
-    End Property
-
-    Public Property Edad1 As Integer
-        Get
-            Return Edad
+            Return IdDc
         End Get
         Set(value As Integer)
-            Edad = value
+            IdDc = value
         End Set
     End Property
 
-    Public Property Telefono1 As String
+    Public Property NombreDc1 As String
         Get
-            Return Telefono
+            Return NombreDc
         End Get
         Set(value As String)
-            Telefono = value
+            NombreDc = value
         End Set
     End Property
 
-    Public Property Direccion1 As String
+    Public Property ApellidosDc1 As String
         Get
-            Return Direccion
+            Return ApellidosDc
         End Get
         Set(value As String)
-            Direccion = value
+            ApellidosDc = value
+        End Set
+    End Property
+
+    Public Property EdadDc1 As Integer
+        Get
+            Return EdadDc
+        End Get
+        Set(value As Integer)
+            EdadDc = value
+        End Set
+    End Property
+
+    Public Property TelefonoDc1 As String
+        Get
+            Return TelefonoDc
+        End Get
+        Set(value As String)
+            TelefonoDc = value
+        End Set
+    End Property
+
+    Public Property DireccionDc1 As String
+        Get
+            Return DireccionDc
+        End Get
+        Set(value As String)
+            DireccionDc = value
+        End Set
+    End Property
+
+    Public Property CorreoDc1 As String
+        Get
+            Return CorreoDc
+        End Get
+        Set(value As String)
+            CorreoDc = value
         End Set
     End Property
 
@@ -89,4 +100,16 @@
             Especialidad = value
         End Set
     End Property
+
+    Public Property Experiencia1 As Integer
+        Get
+            Return Experiencia
+        End Get
+        Set(value As Integer)
+            Experiencia = value
+        End Set
+    End Property
+
+
+
 End Class

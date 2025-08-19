@@ -1,10 +1,13 @@
 ﻿Public Class Paciente
+    ' Atributos privados
+    Private Id As Integer
     Private Nombre As String
     Private Apellidos As String
     Private FechaNacimiento As Date
     Private Edad As Integer
     Private Telefono As String
     Private Direccion As String
+    Private Correo As String
     Private altura As Double
     Private peso As Double
     Private alergias As String
@@ -13,18 +16,30 @@
     Public Sub New()
         ' Constructor vacío
     End Sub
-    ' Constructor
-    Public Sub New(nombre As String, apellidos As String, fechaNacimiento As Date, edad As Integer, telefono As String, direccion As String, altura As Double, peso As Double, alergias As String)
-        Me.Nombre = nombre
-        Me.Apellidos = apellidos
-        Me.FechaNacimiento = fechaNacimiento
-        Me.Edad = edad
-        Me.Telefono = telefono
-        Me.Direccion = direccion
-        Me.altura = altura
-        Me.peso = peso
-        Me.alergias = alergias
+
+    ' Constructor con parámetros
+    Public Sub New(id As Integer, nombre As String, apellidos As String, fechaNacimiento As Date, edad As Integer, telefono As String, direccion As String, correo As String, altura As Double, peso As Double, alergias As String)
+        Me.Id1 = id
+        Me.Nombre1 = nombre
+        Me.Apellidos1 = apellidos
+        Me.FechaNacimiento1 = fechaNacimiento
+        Me.Edad1 = edad
+        Me.Telefono1 = telefono
+        Me.Direccion1 = direccion
+        Me.Correo1 = correo
+        Me.Altura1 = altura
+        Me.Peso1 = peso
+        Me.Alergias1 = alergias
     End Sub
+
+    Public Property Id1 As Integer
+        Get
+            Return Id
+        End Get
+        Set(value As Integer)
+            Id = value
+        End Set
+    End Property
 
     Public Property Nombre1 As String
         Get
@@ -104,6 +119,15 @@
         End Get
         Set(value As String)
             alergias = value
+        End Set
+    End Property
+
+    Public Property Correo1 As String
+        Get
+            Return Correo
+        End Get
+        Set(value As String)
+            Correo = value
         End Set
     End Property
 End Class

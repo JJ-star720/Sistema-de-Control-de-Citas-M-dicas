@@ -146,6 +146,7 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Pagina_inicio.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -214,6 +215,7 @@
       <DependentUpon>About.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="Clases\Admin_usuario.vb" />
     <Compile Include="Clases\Cita.vb" />
     <Compile Include="Clases\Doctor.vb" />
     <Compile Include="Clases\Paciente.vb" />
@@ -224,6 +226,9 @@
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="DATOS\Respositorio_citas.vb" />
+    <Compile Include="DATOS\Respositorio_Doc.vb" />
+    <Compile Include="DATOS\Respositorio_paciente.vb" />
     <Compile Include="Default.aspx.vb">
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>Default.aspx</DependentUpon>
@@ -252,6 +257,13 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Pagina_inicio.aspx.designer.vb">
+      <DependentUpon>Pagina_inicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pagina_inicio.aspx.vb">
+      <DependentUpon>Pagina_inicio.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Site.Master.designer.vb">
       <DependentUpon>Site.Master</DependentUpon>
