@@ -8,7 +8,7 @@ Public Class Pagina_inicio
 
     End Sub
 
-    Protected Function VerificarUsuario(admin As Admin_usuario) As Boolean
+    Protected Function VerificarADMIN(admin As Admin_usuario) As Boolean
         Try
             Dim helper As New DATAHALPER()
             Dim parametros As New List(Of SqlParameter) From {
@@ -39,6 +39,37 @@ Public Class Pagina_inicio
 
     End Function
 
+    Protected Function Verificarpaciente(Pas As Admin_usuario) As Boolean
+        Try
+            Dim helper As New DATAHALPER()
+            Dim parametros As New List(Of SqlParameter) From {
+            New SqlParameter("@Email", Pas.Email),
+            New SqlParameter("@Password", Pas.Password)
+        }
+            ' Ejecutar la consulta para verificar el usuario
+            Dim query As String = "SELECT * FROM Tabla_Pasientes_Clinica WHERE EMAIL = @Email AND CONTRASEÑA = @Password"
+            Dim dataTable As DataTable = helper.ExecuteQuery(query, parametros)
+
+
+            ' Verificar si se encontró el usuario
+            If dataTable.Rows.Count > 0 Then
+                ' Usuario encontrado, puedes redirigir o realizar otra acción
+                Pas = Pas.dtToUsuario(dataTable)
+                Session.Add("UsuarioId", Pas.Id.ToString())
+                Session.Add("UsuarioEmail", Pas.Email.ToString())
+                Return True
+            Else
+                ' Usuario no encontrado, manejar el error
+                Return False
+
+            End If
+
+        Catch ex As Exception
+            Return False
+        End Try
+
+    End Function
+
     Protected Sub btnLogin_Click1(sender As Object, e As EventArgs)
         Dim admin As New Admin_usuario() With {
             .Email = txtEmail.Text,
@@ -46,8 +77,10 @@ Public Class Pagina_inicio
         }
 
         ' Validar el usuario
-        If admin.Validar And VerificarUsuario(admin) Then
+        If admin.Validar And VerificarADMIN(admin) Then
             Response.Redirect("Admin_acceso")
+        ElseIf admin.Validar And Verificarpaciente(admin) Then
+            Response.Redirect("")
         Else
 
             lblError.Text = "Correo electrónico o contraseña inválidos."

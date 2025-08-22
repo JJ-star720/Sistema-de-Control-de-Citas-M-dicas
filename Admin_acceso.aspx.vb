@@ -10,15 +10,15 @@
     End Sub
 
     Protected Sub btnDoc_Click(sender As Object, e As EventArgs)
-        Response.Redirect("Clientes.aspx")
+        Response.Redirect(".aspx")
     End Sub
 
     Protected Sub BtnCit_Click(sender As Object, e As EventArgs)
-        Response.Redirect("Clientes.aspx")
+        Response.Redirect(".aspx")
     End Sub
 
     Protected Sub BtnPas_Click(sender As Object, e As EventArgs)
-        Response.Redirect("Clientes.aspx")
+        Response.Redirect(".aspx")
     End Sub
 
     Protected Sub BynBack_Click(sender As Object, e As EventArgs)
