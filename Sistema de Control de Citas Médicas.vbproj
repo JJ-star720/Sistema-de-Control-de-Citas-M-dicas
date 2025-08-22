@@ -125,6 +125,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="Admin_acceso.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -206,6 +207,13 @@
     <Content Include="Bundle.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin_acceso.aspx.designer.vb">
+      <DependentUpon>Admin_acceso.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_acceso.aspx.vb">
+      <DependentUpon>Admin_acceso.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.vb" />
     <Compile Include="App_Start\RouteConfig.vb" />
     <Compile Include="About.aspx.designer.vb">
@@ -226,6 +234,7 @@
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="DATOS\DATAHALPER.vb" />
     <Compile Include="DATOS\Respositorio_citas.vb" />
     <Compile Include="DATOS\Respositorio_Doc.vb" />
     <Compile Include="DATOS\Respositorio_paciente.vb" />
