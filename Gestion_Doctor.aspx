@@ -61,4 +61,34 @@
          <asp:Label ID="LblMensaje" runat="server" Text=""></asp:Label>
      </div>
 
+
+
+     <asp:HiddenField ID="IDClients" runat="server" />
+ <div class="row mb-3">
+ <div class="col-md-4">
+     <h2>Lista de Doctores</h2>
+ <asp:GridView ID="GvDoctor" runat="server" AllowPaging="True"
+      OnSelectedIndexChanged="GvDoctor_SelectedIndexChanged"
+      OnRowDeleting="GvDoctor_RowDeleting"
+      AllowSorting  ="True" AutoGenerateColumns="False" DataKeyNames="DoctorID"
+      DataSourceID  ="SqlDataSource" Width="819px">
+    <Columns>
+       <asp:CommandField ShowSelectButton="True"></asp:CommandField>
+       <asp:BoundField DataField="DoctorID" HeaderText="DoctorID" InsertVisible="False" ReadOnly="True" SortExpression="DoctorID" />
+       <asp:BoundField DataField="NombreDc" HeaderText="NombreDc" SortExpression="NombreDc" />
+       <asp:BoundField DataField="ApellidosDc" HeaderText="ApellidosDc" SortExpression="ApellidosDc" />
+       <asp:BoundField DataField="EdadDc" HeaderText="EdadDc" SortExpression="EdadDc" />
+       <asp:BoundField DataField="TelefonoDc" HeaderText="TelefonoDc" SortExpression="TelefonoDc" />
+       <asp:BoundField DataField="DireccionDc" HeaderText="DireccionDc" SortExpression="DireccionDc" />
+       <asp:BoundField DataField="CorreoDc" HeaderText="CorreoDc" SortExpression="CorreoDc" />
+       <asp:BoundField DataField="Especialidad" HeaderText="Especialidad" SortExpression="Especialidad" />
+       <asp:BoundField DataField="Experiencia" HeaderText="Experiencia" SortExpression="Experiencia" />
+       <asp:CommandField ShowDeleteButton="True" />
+    </Columns>
+  </asp:GridView>
+
+</div>
+
+</div>
+
 </asp:Content>

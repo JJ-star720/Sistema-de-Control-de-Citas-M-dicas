@@ -11,7 +11,7 @@
          DataSourceID  ="SqlDataSource" Width="819px">
        <Columns>
           <asp:CommandField ShowSelectButton="True"></asp:CommandField>
-          <asp:BoundField DataField="clienteID" HeaderText="ClienteID" InsertVisible="False" ReadOnly="True" SortExpression="ClienteID" />
+          <asp:BoundField DataField="PasienteID" HeaderText="PasienteID" InsertVisible="False" ReadOnly="True" SortExpression="PasienteID" />
           <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />
           <asp:BoundField DataField="Apellidos" HeaderText="Apellidos" SortExpression="Apellidos" />
           <asp:BoundField DataField="FechaNacimiento" HeaderText="FechaNacimiento" SortExpression="FechaNacimiento" />
