@@ -146,6 +146,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
+    <Content Include="Gestion_Doctor.aspx" />
     <Content Include="Gestion_Pasientes.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Pagina_inicio.aspx" />
@@ -246,6 +247,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.vb">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion_Doctor.aspx.designer.vb">
+      <DependentUpon>Gestion_Doctor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion_Doctor.aspx.vb">
+      <DependentUpon>Gestion_Doctor.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Gestion_Pasientes.aspx.designer.vb">
       <DependentUpon>Gestion_Pasientes.aspx</DependentUpon>
