@@ -15,5 +15,4 @@
         <asp:Button CssClass="btn btn-primary w-100 py-2" ID="BynBack" runat="server" Text="Cerrar sesion " OnClick="BynBack_Click" />
     </main>
 </div>
-<a href="Pagina_inicio.aspx">Desea volver?</a>
 </asp:Content>

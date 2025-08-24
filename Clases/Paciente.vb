@@ -10,7 +10,6 @@
     Private Correo As String
     Private altura As Double
     Private peso As Double
-    Private alergias As String
 
 
     Public Sub New()
@@ -18,7 +17,7 @@
     End Sub
 
     ' Constructor con parámetros
-    Public Sub New(id As Integer, nombre As String, apellidos As String, fechaNacimiento As Date, edad As Integer, telefono As String, direccion As String, correo As String, altura As Double, peso As Double, alergias As String)
+    Public Sub New(id As Integer, nombre As String, apellidos As String, fechaNacimiento As Date, edad As Integer, telefono As String, direccion As String, correo As String, altura As Double, peso As Double)
         Me.Id1 = id
         Me.Nombre1 = nombre
         Me.Apellidos1 = apellidos
@@ -29,7 +28,7 @@
         Me.Correo1 = correo
         Me.Altura1 = altura
         Me.Peso1 = peso
-        Me.Alergias1 = alergias
+
     End Sub
 
     Public Property Id1 As Integer
@@ -110,15 +109,6 @@
         End Get
         Set(value As Double)
             peso = value
-        End Set
-    End Property
-
-    Public Property Alergias1 As String
-        Get
-            Return alergias
-        End Get
-        Set(value As String)
-            alergias = value
         End Set
     End Property
 

@@ -46,20 +46,20 @@ Public Class Pagina_inicio
             New SqlParameter("@Email", Pas.Email),
             New SqlParameter("@Password", Pas.Password)
         }
-            ' Ejecutar la consulta para verificar el usuario
-            Dim query As String = "SELECT * FROM Tabla_Pasientes_Clinica WHERE EMAIL = @Email AND CONTRASEÑA = @Password"
+            ' Ejecutar la consulta para verificar al paciente
+            Dim query As String = "SELECT * FROM Tabla_Pasientes_Clinica WHERE EMAIL = @Email AND Contraseña = @Password"
             Dim dataTable As DataTable = helper.ExecuteQuery(query, parametros)
 
 
-            ' Verificar si se encontró el usuario
+            ' Verificar si se encontró al paciente
             If dataTable.Rows.Count > 0 Then
-                ' Usuario encontrado, puedes redirigir o realizar otra acción
+                ' Paciente encontrado, puedes redirigir o realizar otra acción
                 Pas = Pas.dtToUsuario(dataTable)
                 Session.Add("UsuarioId", Pas.Id.ToString())
                 Session.Add("UsuarioEmail", Pas.Email.ToString())
                 Return True
             Else
-                ' Usuario no encontrado, manejar el error
+                ' Paciente no encontrado, manejar el error
                 Return False
 
             End If
@@ -80,7 +80,7 @@ Public Class Pagina_inicio
         If admin.Validar And VerificarADMIN(admin) Then
             Response.Redirect("Admin_acceso")
         ElseIf admin.Validar And Verificarpaciente(admin) Then
-            Response.Redirect("")
+            Response.Redirect("Pag_Pacientes")
         Else
 
             lblError.Text = "Correo electrónico o contraseña inválidos."
