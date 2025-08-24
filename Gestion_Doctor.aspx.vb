@@ -66,26 +66,26 @@ Public Class Gestion_Doctor
 
 
             ' Asignar los valores de las celdas a los controles del formulario
-            TxtNombre.Text = Cliedcus.Nombre
+            TxtNombreDc.Text = Doctors.NombreDc1
 
             If row.Cells(3).Text.IsNullOrWhiteSpace Then
-                Txtapellido.Text = ""
+                TxtApellidosDc.Text = ""
             Else
-                Txtapellido.Text = Cliedcus.Apellido
+                TxtApellidosDc.Text = Doctors.ApellidosDc1
             End If
 
-            Txttelefono.Text = Cliedcus.Telefono
+            TxtTelefonoDc.Text = Doctors.TelefonoDc1
 
         End If
     End Sub
 
     Protected Sub GvDoctor_RowDeleting(sender As Object, e As GridViewDeleteEventArgs)
-        Dim id As Integer = Convert.ToInt32(GvClientes.DataKeys(e.RowIndex).Value)
-        Dim resultado As String = dbClientrepo.EliminarCliente(id)
+        Dim id As Integer = Convert.ToInt32(GvDoctor.DataKeys(e.RowIndex).Value)
+        Dim resultado As String = dbDOCTS.EliminarCliente(id)
         ' Mostrar el mensaje de resultado en la etiqueta LblMensaje
         LblMensaje.Text = resultado
         e.Cancel = True
-        GvClientes.DataBind()
+        GvDoctor.DataBind()
     End Sub
 
     Protected Sub btnCancelar_Click(sender As Object, e As EventArgs)
