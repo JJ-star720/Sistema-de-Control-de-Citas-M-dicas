@@ -1,5 +1,8 @@
 ﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="Gestion_Doctor.aspx.vb" Inherits="Sistema_de_Control_de_Citas_Médicas.Gestion_Doctor" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+        <asp:HiddenField ID="IDDocts" runat="server" />
+<div class="row mb-3">
+<div class="col-md-4">
     <asp:SqlDataSource ID="SqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:Conexion %>"
       SelectCommand="SELECT * FROM [Tabla_Doctor]">
     </asp:SqlDataSource>
@@ -63,9 +66,7 @@
 
 
 
-     <asp:HiddenField ID="IDDocts" runat="server" />
- <div class="row mb-3">
- <div class="col-md-4">
+    
      <h2>Lista de Doctores</h2>
  <asp:GridView ID="GvDoctor" runat="server" AllowPaging="True"
       OnSelectedIndexChanged="GvDoctor_SelectedIndexChanged"

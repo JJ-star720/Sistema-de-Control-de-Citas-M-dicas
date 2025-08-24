@@ -46,6 +46,48 @@ Public Class Gestion_Doctor
         End If
     End Sub
 
+    Protected Sub GvDoctor_SelectedIndexChanged(sender As Object, e As EventArgs)
+        Dim index = GvDoctor.SelectedIndex
+        Dim IdDocs As Integer = Convert.ToInt32(GvDoctor.SelectedDataKey.Value)
+
+        If index >= 0 Then
+            Dim row = GvDoctor.Rows(index)
+            IDDocts.Value = IdDocs.ToString()
+            Dim Doctors As New Doctor With {
+                .NombreDc1 = row.Cells(2).Text,
+                .ApellidosDc1 = row.Cells(3).Text,
+                .EdadDc1 = row.Cells(4).Text,
+                .TelefonoDc1 = row.Cells(5).Text,
+                .DireccionDc1 = row.Cells(6).Text,
+                .CorreoDc1 = row.Cells(7).Text,
+                .Especialidad1 = row.Cells(8).Text,
+                .Experiencia1 = row.Cells(9).Text
+            }
+
+
+            ' Asignar los valores de las celdas a los controles del formulario
+            TxtNombre.Text = Cliedcus.Nombre
+
+            If row.Cells(3).Text.IsNullOrWhiteSpace Then
+                Txtapellido.Text = ""
+            Else
+                Txtapellido.Text = Cliedcus.Apellido
+            End If
+
+            Txttelefono.Text = Cliedcus.Telefono
+
+        End If
+    End Sub
+
+    Protected Sub GvDoctor_RowDeleting(sender As Object, e As GridViewDeleteEventArgs)
+        Dim id As Integer = Convert.ToInt32(GvClientes.DataKeys(e.RowIndex).Value)
+        Dim resultado As String = dbClientrepo.EliminarCliente(id)
+        ' Mostrar el mensaje de resultado en la etiqueta LblMensaje
+        LblMensaje.Text = resultado
+        e.Cancel = True
+        GvClientes.DataBind()
+    End Sub
+
     Protected Sub btnCancelar_Click(sender As Object, e As EventArgs)
         TxtNombreDc.Text = ""
         TxtApellidosDc.Text = ""

@@ -5,7 +5,7 @@
     <div class="col-md-4">
         <h2>Pasientes</h2>
     <asp:GridView ID="GvPasiente" runat="server" AllowPaging="True"
-         OnSelectedIndexChanged="GvPasientes_SelectedIndexChanged"
+         OnSelectedIndexChanged="GvPasiente_SelectedIndexChanged"
          OnRowDeleting="GvPasiente_RowDeleting"
          AllowSorting  ="True" AutoGenerateColumns="False" DataKeyNames="PasienteID"
          DataSourceID  ="SqlDataSource" Width="819px">
@@ -92,5 +92,5 @@
         </div>
     </div>
 
-</div>
+  </div>
 </asp:Content>
