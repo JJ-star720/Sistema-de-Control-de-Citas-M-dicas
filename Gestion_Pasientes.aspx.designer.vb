@@ -14,13 +14,13 @@ Option Explicit On
 Partial Public Class Gestion_Pasientes
 
     '''<summary>
-    '''Control IDClients.
+    '''Control IDPass.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents IDClients As Global.System.Web.UI.WebControls.HiddenField
+    Protected WithEvents IDPass As Global.System.Web.UI.WebControls.HiddenField
 
     '''<summary>
     '''Control GvPasiente.

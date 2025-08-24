@@ -10,7 +10,7 @@
     End Sub
 
     Protected Sub btnDoc_Click(sender As Object, e As EventArgs)
-        Response.Redirect(".aspx")
+        Response.Redirect("Gestion_Doctor.aspx")
     End Sub
 
     Protected Sub BtnCit_Click(sender As Object, e As EventArgs)

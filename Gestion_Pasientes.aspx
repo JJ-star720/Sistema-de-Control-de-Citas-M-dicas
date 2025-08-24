@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="Gestion_Pasientes.aspx.vb" Inherits="Sistema_de_Control_de_Citas_Médicas.Gestion_Pasientes" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <asp:HiddenField ID="IDClients" runat="server" />
+    <asp:HiddenField ID="IDPass" runat="server" />
     <div class="row mb-3">
     <div class="col-md-4">
         <h2>Pasientes</h2>

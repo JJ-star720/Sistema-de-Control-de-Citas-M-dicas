@@ -63,7 +63,7 @@
 
 
 
-     <asp:HiddenField ID="IDClients" runat="server" />
+     <asp:HiddenField ID="IDDocts" runat="server" />
  <div class="row mb-3">
  <div class="col-md-4">
      <h2>Lista de Doctores</h2>
