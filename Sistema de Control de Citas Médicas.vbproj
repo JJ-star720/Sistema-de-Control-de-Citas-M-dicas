@@ -146,6 +146,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
+    <Content Include="Gestion_Citas.aspx" />
     <Content Include="Gestion_Doctor.aspx" />
     <Content Include="Gestion_Pasientes.aspx" />
     <Content Include="Global.asax" />
@@ -247,6 +248,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.vb">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion_Citas.aspx.designer.vb">
+      <DependentUpon>Gestion_Citas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion_Citas.aspx.vb">
+      <DependentUpon>Gestion_Citas.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Gestion_Doctor.aspx.designer.vb">
       <DependentUpon>Gestion_Doctor.aspx</DependentUpon>

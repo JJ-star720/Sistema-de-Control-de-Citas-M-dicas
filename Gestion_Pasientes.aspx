@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="Gestion_Pasientes.aspx.vb" Inherits="Sistema_de_Control_de_Citas_Médicas.Gestion_Pasientes" %>
+﻿<%@ Page Title="Gestion de Pacientes" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="Gestion_Pasientes.aspx.vb" Inherits="Sistema_de_Control_de_Citas_Médicas.Gestion_Pasientes" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     
 

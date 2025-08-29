@@ -14,7 +14,7 @@
     End Sub
 
     Protected Sub BtnCit_Click(sender As Object, e As EventArgs)
-        Response.Redirect(".aspx")
+        Response.Redirect("Gestion_Citas.aspx")
     End Sub
 
     Protected Sub BtnPas_Click(sender As Object, e As EventArgs)
