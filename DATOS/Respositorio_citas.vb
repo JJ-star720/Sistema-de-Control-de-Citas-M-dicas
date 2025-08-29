@@ -4,12 +4,12 @@ Public Class Respositorio_citas
 
     Public Function createPaciente(cit As Cita) As String
         Try
-            Dim query As String = "INSERT INTO Tabla_Paciente (Fecha_cita, Hora_cita, Area) 
-            VALUES (@Fecha_cita, @Hora_cita, @Area )"
+            Dim query As String = "INSERT INTO Tabla_Cita (Fecha_Cita, Hora_Cita, Area) 
+            VALUES (@Fecha_Cita, @Hora_Cita, @Area )"
             Dim parameters As New List(Of SqlParameter) From {
-                New SqlParameter("@Fecha_cita", cit.FechaCita1),
+                New SqlParameter("@Fecha_Cita", cit.FechaCita1),
                 New SqlParameter("@Hora_Cita", cit.HoraCita1),
-                New SqlParameter("@area", cit.Area1)
+                New SqlParameter("@Area", cit.Area1)
             }
             Using connection As New SqlConnection(connectionString)
                 Using command As New SqlCommand(query, connection)
@@ -27,7 +27,7 @@ Public Class Respositorio_citas
 
     Public Function EliminarPasiente(id As Integer) As String
         Try
-            Dim query As String = "DELETE FROM Tabla_Citas WHERE Id = @iD"
+            Dim query As String = "DELETE FROM Tabla_Cita WHERE Id = @iD"
             Dim parameters As New List(Of SqlParameter) From {
                 New SqlParameter("@iD", id)
             }
@@ -52,10 +52,10 @@ Public Class Respositorio_citas
 
     Friend Function UpdatePaciente(Iddc As String, cit As Cita) As String
         Try
-            Dim query As String = "UPDATE Tabla_Citas SET Fecha_Cita = @Fecha_Cita, Hora_cita = @Hora_Cita, Area = @area WHERE Id = @iD"
+            Dim query As String = "UPDATE Tabla_Cita SET Fecha_Cita = @Fecha_Cita, Hora_Cita = @Hora_Cita, Area = @area WHERE Id = @iD"
             Dim parameters As New List(Of SqlParameter) From {
                 New SqlParameter("@iD", Iddc),
-                New SqlParameter("@Fecha_cita", cit.FechaCita1),
+                New SqlParameter("@Fecha_Cita", cit.FechaCita1),
                 New SqlParameter("@Hora_Cita", cit.HoraCita1),
                 New SqlParameter("@area", cit.Area1)
             }

@@ -53,20 +53,18 @@ Public Class Gestion_Citas
             Dim cits As New Cita With {
                 .FechaCita1 = row.Cells(2).Text,
                 .HoraCita1 = row.Cells(3).Text,
-                .Edad1 = row.Cells(4).Text
+                .Area1 = row.Cells(4).Text
             }
 
             ' Asignar los valores de las celdas a los controles del formulario
             TxtFechaCita.Text = cits.FechaCita1
 
-            If row.Cells(3).Text.IsNullOrWhiteSpace Then
-                TxtHora_Cita.Text = ""
-            Else
-                TxtFechaCita.Text = cits.HoraCita1
-                TxtArea.Text = cits.Area1
-            End If
 
+            TxtHora_Cita.Text = cits.HoraCita1
             TxtArea.Text = cits.Area1
+
+
+
 
         End If
     End Sub
