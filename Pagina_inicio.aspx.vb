@@ -16,7 +16,7 @@ Public Class Pagina_inicio
             New SqlParameter("@Password", admin.Password)
         }
             ' Ejecutar la consulta para verificar el usuario
-            Dim query As String = "SELECT * FROM USUARIO WHERE EMAIL = @Email AND CONTRASEÑA = @Password"
+            Dim query As String = "SELECT * FROM USUARIOS WHERE EMAIL = @Email AND CONTRASEÑA = @Password"
             Dim dataTable As DataTable = helper.ExecuteQuery(query, parametros)
 
 
@@ -47,7 +47,7 @@ Public Class Pagina_inicio
             New SqlParameter("@Password", Pas.PasswordPas)
         }
             ' Ejecutar la consulta para verificar al paciente
-            Dim query As String = "SELECT * FROM Tabla_Pasientes_Clinica WHERE EMAIL = @Email AND Contraseña = @Password"
+            Dim query As String = "SELECT * FROM Tabla_Pasientes_Clinica WHERE EmailPas = @Email AND ContraseñaPas = @Password"
             Dim dataTable As DataTable = helper.ExecuteQuery(query, parametros)
 
 
@@ -76,16 +76,11 @@ Public Class Pagina_inicio
             .Password = txtContraseña.Text
         }
 
-        Dim Pas As New Paciente_usuario() With {
-            .EmailPas = txtEmail.Text,
-            .PasswordPas = txtContraseña.Text
-        }
+
 
         ' Validar el usuario
         If admin.Validar And VerificarADMIN(admin) Then
             Response.Redirect("Admin_acceso")
-        ElseIf Pas.validar And Verificarpaciente(Pas) Then
-            Response.Redirect("Pag_Pacientes")
         Else
 
             lblError.Text = "Correo electrónico o contraseña inválidos."
@@ -93,4 +88,18 @@ Public Class Pagina_inicio
         End If
     End Sub
 
+    Protected Sub BtnPas_Click(sender As Object, e As EventArgs)
+        Dim Pas As New Paciente_usuario() With {
+            .EmailPas = txtEmail.Text,
+            .PasswordPas = txtContraseña.Text
+        }
+
+        If Pas.Validar And Verificarpaciente(Pas) Then
+            Response.Redirect("Pag_Pacientes")
+        Else
+
+            lblError.Text = "Correo electrónico o contraseña inválidos."
+            lblError.Visible = True
+        End If
+    End Sub
 End Class

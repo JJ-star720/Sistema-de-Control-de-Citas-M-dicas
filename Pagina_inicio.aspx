@@ -20,7 +20,8 @@
                 Recordar 
             </label>
         </div>
-        <asp:Button CssClass="btn btn-primary w-100 py-2" ID="btnLogin" runat="server" Text="Acceder" OnClick="btnLogin_Click1" />
+        <asp:Button CssClass="btn btn-primary w-100 py-2" ID="btnLogin" runat="server" Text="Admin" OnClick="btnLogin_Click1" />
+        <asp:Button CssClass="btn btn-primary w-100 py-2" ID="BtnPas" runat="server" Text="Pasciente" OnClick="BtnPas_Click" />
     </main>
 </div>
 

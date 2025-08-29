@@ -41,6 +41,15 @@ Partial Public Class Pagina_inicio
     Protected WithEvents btnLogin As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
+    '''Control BtnPas.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents BtnPas As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
     '''Control lblError.
     '''</summary>
     '''<remarks>
