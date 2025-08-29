@@ -2,19 +2,19 @@
 Public Class Respositorio_Doc
     Private ReadOnly connectionString As String = ConfigurationManager.ConnectionStrings("Conexion").ConnectionString
 
-    Public Function createCliente(doc As Doctor) As String
+    Public Function createDoc(doc As Doctor) As String
         Try
-            Dim query As String = "INSERT INTO Tabla_Doctor (NombreDc, ApellidoDc, EdadDc, TelefonoDc, DireccionDc, CorreoDc, Especialidad, Experiencia) 
-            VALUES (@NombreDc, @ApellidoDc, @EdadDc, @TelefonoDc, @DireccionDc, @CorreoDc, @Especialidad, @Experiencia )"
+            Dim query As String = "INSERT INTO Tabla_Doctor (NombreDc, ApellidosDc, EdadDc, TelefonoDc, DireccionDc, CorreoDc, Especialidad, Experiencia) 
+            VALUES (@NombreDc1, @ApellidosDc1, @EdadDc1, @TelefonoDc1, @DireccionDc1, @CorreoDc1, @Especialidad1, @Experiencia1 )"
             Dim parameters As New List(Of SqlParameter) From {
-                New SqlParameter("@NombreDc", doc.NombreDc1),
-                New SqlParameter("@ApellidoDc", doc.ApellidosDc1),
-                New SqlParameter("@EdadDc", doc.EdadDc1),
-                New SqlParameter("@TelefonoDc", doc.TelefonoDc1),
-                New SqlParameter("@DireccionDc", doc.DireccionDc1),
-                New SqlParameter("@CorreoDc", doc.CorreoDc1),
-                New SqlParameter("@Especialidad", doc.Especialidad1),
-                New SqlParameter("@Experiencia", doc.Experiencia1)
+                New SqlParameter("@NombreDc1", doc.NombreDc1),
+                New SqlParameter("@ApellidosDc1", doc.ApellidosDc1),
+                New SqlParameter("@EdadDc1", doc.EdadDc1),
+                New SqlParameter("@TelefonoDc1", doc.TelefonoDc1),
+                New SqlParameter("@DireccionDc1", doc.DireccionDc1),
+                New SqlParameter("@CorreoDc1", doc.CorreoDc1),
+                New SqlParameter("@Especialidad1", doc.Especialidad1),
+                New SqlParameter("@Experiencia1", doc.Experiencia1)
             }
             Using connection As New SqlConnection(connectionString)
                 Using command As New SqlCommand(query, connection)
@@ -30,7 +30,7 @@ Public Class Respositorio_Doc
     End Function
 
 
-    Public Function EliminarCliente(id As Integer) As String
+    Public Function EliminarDoc(id As Integer) As String
         Try
             Dim query As String = "DELETE FROM Tabla_Doctor WHERE ID = @Id"
             Dim parameters As New List(Of SqlParameter) From {
@@ -55,19 +55,20 @@ Public Class Respositorio_Doc
     End Function
 
 
-    Friend Function UpdateClientes(Iddc As String, doc As Doctor) As String
+    Friend Function UpdateDoc(Iddc As String, doc As Doctor) As String
         Try
-            Dim query As String = "UPDATE Tabla_Doctor SET NombreDc = @NombreDc,
-            ApellidoDc = @ApellidoDc, EdadDc = @EdadDc, TelefonoDc = @TelefonoDc,
-            DireccionDc = @DireccionDc, CorreoDc = @Correo WHERE ClienteID = @Id"
+            Dim query As String = "UPDATE Tabla_Doctor SET NombreDc = @NombreDc1,
+            ApellidoDc = @ApellidosDc1, EdadDc = @EdadDc1, TelefonoDc = @TelefonoDc1,
+            DireccionDc = @DireccionDc1, CorreoDc = @Correo, Especialidad = @Especialidad, 
+            Experiencia = @Experiencia WHERE ID = @Id"
             Dim parameters As New List(Of SqlParameter) From {
                 New SqlParameter("@Id", Iddc),
-                New SqlParameter("@NombreDc", doc.NombreDc1),
-                New SqlParameter("@ApellidoDc", doc.ApellidosDc1),
-                New SqlParameter("@EdadDc", doc.EdadDc1),
-                New SqlParameter("@TelefonoDc", doc.TelefonoDc1),
-                New SqlParameter("@DireccionDc", doc.DireccionDc1),
-                New SqlParameter("@CorreoDc", doc.CorreoDc1),
+                New SqlParameter("@NombreDc1", doc.NombreDc1),
+                New SqlParameter("@ApellidosDc1", doc.ApellidosDc1),
+                New SqlParameter("@EdadDc1", doc.EdadDc1),
+                New SqlParameter("@TelefonoDc1", doc.TelefonoDc1),
+                New SqlParameter("@DireccionDc1", doc.DireccionDc1),
+                New SqlParameter("@CorreoDc1", doc.CorreoDc1),
                 New SqlParameter("@Especialidad", doc.Especialidad1),
                 New SqlParameter("@Experiencia", doc.Experiencia1)
             }

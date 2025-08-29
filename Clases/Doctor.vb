@@ -1,4 +1,5 @@
-﻿Public Class Doctor
+﻿Imports System.Net
+Public Class Doctor
     ' Atributos privados
     Private IdDc As Integer
     Private NombreDc As String

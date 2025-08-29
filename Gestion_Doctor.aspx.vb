@@ -22,8 +22,8 @@ Public Class Gestion_Doctor
                     .Especialidad1 = TxtEspecialidad.Text,
                     .Experiencia1 = Conversion.Val(TxtExperiencia.Text)
                 }
-                dbDOCTS.createCliente(Doc)
-                LblMensaje.Text = "Cliente creado correctamente"
+                dbDOCTS.createDoc(Doc)
+                LblMensaje.Text = dbDOCTS.createDoc(Doc)
                 GvDoctor.DataBind()
             End If
         Else
@@ -38,7 +38,7 @@ Public Class Gestion_Doctor
                 .Especialidad1 = TxtEspecialidad.Text,
                 .Experiencia1 = Conversion.Val(TxtExperiencia.Text)
             }
-            Dim resultado As String = dbDOCTS.UpdateClientes(IDDocts.Value, newDoc)
+            Dim resultado As String = dbDOCTS.UpdateDoc(IDDocts.Value, newDoc)
             LblMensaje.Text = resultado
             IDDocts.Value = ""
             GvDoctor.DataBind()
@@ -81,7 +81,7 @@ Public Class Gestion_Doctor
 
     Protected Sub GvDoctor_RowDeleting(sender As Object, e As GridViewDeleteEventArgs)
         Dim id As Integer = Convert.ToInt32(GvDoctor.DataKeys(e.RowIndex).Value)
-        Dim resultado As String = dbDOCTS.EliminarCliente(id)
+        Dim resultado As String = dbDOCTS.EliminarDoc(id)
         ' Mostrar el mensaje de resultado en la etiqueta LblMensaje
         LblMensaje.Text = resultado
         e.Cancel = True
