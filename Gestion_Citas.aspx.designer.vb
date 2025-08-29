@@ -14,13 +14,13 @@ Option Explicit On
 Partial Public Class Gestion_Citas
 
     '''<summary>
-    '''Control TxtTxtFechaCita.
+    '''Control TxtFechaCita.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents TxtTxtFechaCita As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents TxtFechaCita As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''Control TxtHora_Cita.

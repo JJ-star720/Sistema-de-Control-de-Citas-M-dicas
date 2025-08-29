@@ -5,7 +5,7 @@
 
        <div class="form-group mb-3">
             <label for="TxtFechaCita">Fecha de cita</label>
-            <asp:TextBox TextMode ="DateTime" ID="TxtTxtFechaCita" runat="server" CssClass="form-control"></asp:TextBox>
+            <asp:TextBox TextMode ="DateTime" ID="TxtFechaCita" runat="server" CssClass="form-control"></asp:TextBox>
        </div>
 
         <div class="form-group mb-3">

@@ -1,20 +1,20 @@
 ﻿Public Class Cita
     Inherits Paciente
 
-    Private FechaCita As Date
+    Private FechaCita As DateTime
     Private HoraCita As String
     Private Area As String
 
     Public Sub New()
     End Sub
 
-    Public Sub New(fechaCita As Date, horaCita As String, area As String)
+    Public Sub New(fechaCita As DateTime, horaCita As String, area As String)
         Me.FechaCita = fechaCita
         Me.HoraCita = horaCita
         Me.Area = area
     End Sub
 
-    Public Property FechaCita1 As Date
+    Public Property FechaCita1 As DateTime
         Get
             Return FechaCita
         End Get
