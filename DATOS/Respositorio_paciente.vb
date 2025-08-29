@@ -5,16 +5,17 @@ Public Class Respositorio_paciente
 
     Public Function createPaciente(pas As Paciente) As String
         Try
-            Dim query As String = "INSERT INTO Tabla_Paciente (Nombre, Apellido, Edad, Telefono, Direccion, Correo, altura, peso) 
-            VALUES (@Nombre, @Apellido, @Edad, @Telefono, @Direccion, @Correo, @altura, @peso )"
+            Dim query As String = "INSERT INTO Tabla_Paciente (Nombre, Apellidos, FechaNacimiento, Edad, Telefono, Direccion, Correo, altura, peso) 
+            VALUES (@Nombre, @Apellidos, @FechaNacimiento, @Edad, @Telefono, @Direccion, @Correo, @altura, @peso )"
             Dim parameters As New List(Of SqlParameter) From {
                 New SqlParameter("@Nombre", pas.Nombre1),
-                New SqlParameter("@Apellido", pas.Apellidos1),
+                New SqlParameter("@Apellidos", pas.Apellidos1),
+                New SqlParameter("@FechaNacimiento", pas.FechaNacimiento1),
                 New SqlParameter("@Edad", pas.Edad1),
                 New SqlParameter("@Telefono", pas.Telefono1),
                 New SqlParameter("@Direccion", pas.Direccion1),
-                New SqlParameter("@Correo", pas.Correo1),
-                New SqlParameter("@altura", pas.Altura1)
+                New SqlParameter("@altura", pas.Altura1),
+                New SqlParameter("@peso", pas.Peso1)
             }
             Using connection As New SqlConnection(connectionString)
                 Using command As New SqlCommand(query, connection)
@@ -30,9 +31,9 @@ Public Class Respositorio_paciente
     End Function
 
 
-    Public Function EliminarDoc(id As Integer) As String
+    Public Function EliminarPasiente(id As Integer) As String
         Try
-            Dim query As String = "DELETE FROM Tabla_Doctor WHERE ID = @Id"
+            Dim query As String = "DELETE FROM Tabla_Paciente WHERE ID = @Id"
             Dim parameters As New List(Of SqlParameter) From {
                 New SqlParameter("@Id", id)
             }
@@ -44,33 +45,33 @@ Public Class Respositorio_paciente
 
                     Dim rowsAffected As Integer = command.ExecuteNonQuery()
                     If rowsAffected = 0 Then
-                        Return "No se encontró al Doctor con el ID especificado."
+                        Return "No se encontró al paciente con el ID especificado."
                     End If
                 End Using
             End Using
-            Return "Doctor eliminado exitosamente."
+            Return "Paciente eliminado exitosamente."
         Catch ex As Exception
-            Return "Error al eliminar el Doctor: " & ex.Message
+            Return "Error al eliminar el Paciente: " & ex.Message
         End Try
     End Function
 
 
-    Friend Function UpdateDoc(Iddc As String, doc As Doctor) As String
+    Friend Function UpdateDoc(Iddc As String, pas As Paciente) As String
         Try
-            Dim query As String = "UPDATE Tabla_Doctor SET NombreDc = @NombreDc1,
-            ApellidoDc = @ApellidosDc1, EdadDc = @EdadDc1, TelefonoDc = @TelefonoDc1,
-            DireccionDc = @DireccionDc1, CorreoDc = @Correo, Especialidad = @Especialidad, 
-            Experiencia = @Experiencia WHERE ID = @Id"
+            Dim query As String = "UPDATE Tabla_Paciente SET Nombre = @Nombre,
+            Apellidos = @Apellidos,FechaNacimiento = @FechaNacimiento, Edad = @Edad, Telefono = @Telefono,
+            Direccion = @Direccion, Correo = @Correo, altura = @altura, 
+            peso = @peso WHERE Id = @ID"
             Dim parameters As New List(Of SqlParameter) From {
                 New SqlParameter("@Id", Iddc),
-                New SqlParameter("@NombreDc1", doc.NombreDc1),
-                New SqlParameter("@ApellidosDc1", doc.ApellidosDc1),
-                New SqlParameter("@EdadDc1", doc.EdadDc1),
-                New SqlParameter("@TelefonoDc1", doc.TelefonoDc1),
-                New SqlParameter("@DireccionDc1", doc.DireccionDc1),
-                New SqlParameter("@CorreoDc1", doc.CorreoDc1),
-                New SqlParameter("@Especialidad", doc.Especialidad1),
-                New SqlParameter("@Experiencia", doc.Experiencia1)
+                New SqlParameter("@Nombre", pas.Nombre1),
+                New SqlParameter("@Apellido", pas.Apellidos1),
+                New SqlParameter("@FechaNacimiento", pas.FechaNacimiento1),
+                New SqlParameter("@Edad", pas.Edad1),
+                New SqlParameter("@Telefono", pas.Telefono1),
+                New SqlParameter("@Direccion", pas.Direccion1),
+                New SqlParameter("@alrura", pas.Altura1),
+                New SqlParameter("@peso", pas.Peso1)
             }
             Using connection As New SqlConnection(connectionString)
                 Using command As New SqlCommand(query, connection)
@@ -79,9 +80,9 @@ Public Class Respositorio_paciente
                     command.ExecuteNonQuery()
                 End Using
             End Using
-            Return "Datos de doctor actualizados exitosamente."
+            Return "Datos del Paciente actualizados exitosamente."
         Catch ex As Exception
-            Return "Error al actualizar Los Datos del doctor: " & ex.Message
+            Return "Error al actualizar Los Datos del Paciente: " & ex.Message
         End Try
     End Function
 End Class
