@@ -67,14 +67,16 @@ Public Class Gestion_Doctor
 
             ' Asignar los valores de las celdas a los controles del formulario
             TxtNombreDc.Text = Doctors.NombreDc1
-
-            If row.Cells(3).Text.IsNullOrWhiteSpace Then
-                TxtApellidosDc.Text = ""
-            Else
-                TxtApellidosDc.Text = Doctors.ApellidosDc1
-            End If
-
+            TxtApellidosDc.Text = Doctors.ApellidosDc1
+            TxtEdadDc.Text = Doctors.EdadDc1
             TxtTelefonoDc.Text = Doctors.TelefonoDc1
+            TxtDireccionDc.Text = Doctors.DireccionDc1
+            TxtCorreoDc.Text = Doctors.CorreoDc1
+            TxtEspecialidad.Text = Doctors.Especialidad1
+            TxtExperiencia.Text = Doctors.Experiencia1
+
+
+
 
         End If
     End Sub

@@ -58,8 +58,8 @@ Public Class Respositorio_Doc
     Friend Function UpdateDoc(Iddc As String, doc As Doctor) As String
         Try
             Dim query As String = "UPDATE Tabla_Doctor SET NombreDc = @NombreDc1,
-            ApellidoDc = @ApellidosDc1, EdadDc = @EdadDc1, TelefonoDc = @TelefonoDc1,
-            DireccionDc = @DireccionDc1, CorreoDc = @Correo, Especialidad = @Especialidad, 
+            ApellidosDc = @ApellidosDc1, EdadDc = @EdadDc1, TelefonoDc = @TelefonoDc1,
+            DireccionDc = @DireccionDc1, CorreoDc = @CorreoDc1, Especialidad = @Especialidad, 
             Experiencia = @Experiencia WHERE ID = @Id"
             Dim parameters As New List(Of SqlParameter) From {
                 New SqlParameter("@Id", Iddc),
