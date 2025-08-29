@@ -231,6 +231,7 @@
     <Compile Include="Clases\Cita.vb" />
     <Compile Include="Clases\Doctor.vb" />
     <Compile Include="Clases\Paciente.vb" />
+    <Compile Include="Clases\Paciente_usuario.vb" />
     <Compile Include="Contact.aspx.designer.vb">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>

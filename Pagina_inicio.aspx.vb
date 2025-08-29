@@ -16,7 +16,7 @@ Public Class Pagina_inicio
             New SqlParameter("@Password", admin.Password)
         }
             ' Ejecutar la consulta para verificar el usuario
-            Dim query As String = "SELECT * FROM USUARIOS WHERE EMAIL = @Email AND CONTRASEÑA = @Password"
+            Dim query As String = "SELECT * FROM USUARIO WHERE EMAIL = @Email AND CONTRASEÑA = @Password"
             Dim dataTable As DataTable = helper.ExecuteQuery(query, parametros)
 
 
@@ -39,7 +39,7 @@ Public Class Pagina_inicio
 
     End Function
 
-    Protected Function Verificarpaciente(Pas As Admin_usuario) As Boolean
+    Protected Function Verificarpaciente(Pas As Paciente_usuario) As Boolean
         Try
             Dim helper As New DATAHALPER()
             Dim parametros As New List(Of SqlParameter) From {
@@ -54,7 +54,7 @@ Public Class Pagina_inicio
             ' Verificar si se encontró al paciente
             If dataTable.Rows.Count > 0 Then
                 ' Paciente encontrado, puedes redirigir o realizar otra acción
-                Pas = Pas.dtToUsuario(dataTable)
+                Pas = Pas.dtToPasUsuario(dataTable)
                 Session.Add("UsuarioId", Pas.Id.ToString())
                 Session.Add("UsuarioEmail", Pas.Email.ToString())
                 Return True
@@ -76,10 +76,15 @@ Public Class Pagina_inicio
             .Password = txtContraseña.Text
         }
 
+        Dim Pas As New Paciente_usuario() With {
+            .Email = txtEmail.Text,
+            .Password = txtContraseña.Text
+        }
+
         ' Validar el usuario
         If admin.Validar And VerificarADMIN(admin) Then
             Response.Redirect("Admin_acceso")
-        ElseIf admin.Validar And Verificarpaciente(admin) Then
+        ElseIf Pas.validar And Verificarpaciente(Pas) Then
             Response.Redirect("Pag_Pacientes")
         Else
 
