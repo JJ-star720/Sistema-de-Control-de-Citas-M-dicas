@@ -5,12 +5,11 @@ Public Class Respositorio_paciente
 
     Public Function createPaciente(pas As Paciente) As String
         Try
-            Dim query As String = "INSERT INTO Tabla_Paciente (Nombre, Apellidos, FechaNacimiento, Edad, Telefono, Direccion, Correo, altura, peso) 
-            VALUES (@Nombre, @Apellidos, @FechaNacimiento, @Edad, @Telefono, @Direccion, @Correo, @altura, @peso )"
+            Dim query As String = "INSERT INTO Tabla_Paciente (Nombre, Apellidos, Edad, Telefono, Direccion, Correo, altura, peso) 
+            VALUES (@Nombre, @Apellidos, @Edad, @Telefono, @Direccion, @Correo, @altura, @peso )"
             Dim parameters As New List(Of SqlParameter) From {
                 New SqlParameter("@Nombre", pas.Nombre1),
                 New SqlParameter("@Apellidos", pas.Apellidos1),
-                New SqlParameter("@FechaNacimiento", pas.FechaNacimiento1),
                 New SqlParameter("@Edad", pas.Edad1),
                 New SqlParameter("@Telefono", pas.Telefono1),
                 New SqlParameter("@Direccion", pas.Direccion1),
@@ -59,14 +58,13 @@ Public Class Respositorio_paciente
     Friend Function UpdatePaciente(Iddc As String, pas As Paciente) As String
         Try
             Dim query As String = "UPDATE Tabla_Paciente SET Nombre = @Nombre,
-            Apellidos = @Apellidos,FechaNacimiento = @FechaNacimiento, Edad = @Edad, Telefono = @Telefono,
+            Apellidos = @Apellidos, Edad = @Edad, Telefono = @Telefono,
             Direccion = @Direccion, Correo = @Correo, altura = @altura, 
             peso = @peso WHERE Id = @iD"
             Dim parameters As New List(Of SqlParameter) From {
                 New SqlParameter("@iD", Iddc),
                 New SqlParameter("@Nombre", pas.Nombre1),
                 New SqlParameter("@Apellido", pas.Apellidos1),
-                New SqlParameter("@FechaNacimiento", pas.FechaNacimiento1),
                 New SqlParameter("@Edad", pas.Edad1),
                 New SqlParameter("@Telefono", pas.Telefono1),
                 New SqlParameter("@Direccion", pas.Direccion1),

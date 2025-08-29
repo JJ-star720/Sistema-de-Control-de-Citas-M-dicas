@@ -3,32 +3,28 @@
     Private Id As Integer
     Private Nombre As String
     Private Apellidos As String
-    Private FechaNacimiento As Date
     Private Edad As Integer
-    Private Telefono As String
+    Private Telefono As Integer
     Private Direccion As String
     Private Correo As String
-    Private altura As Double
-    Private peso As Double
+    Private altura As Integer
+    Private peso As Integer
 
 
     Public Sub New()
         ' Constructor vacío
     End Sub
 
-    ' Constructor con parámetros
-    Public Sub New(id As Integer, nombre As String, apellidos As String, fechaNacimiento As Date, edad As Integer, telefono As String, direccion As String, correo As String, altura As Double, peso As Double)
+    Public Sub New(id As Integer, nombre As String, apellidos As String, edad As Integer, telefono As Integer, direccion As String, correo As String, altura As Integer, peso As Integer)
         Me.Id1 = id
         Me.Nombre1 = nombre
         Me.Apellidos1 = apellidos
-        Me.FechaNacimiento1 = fechaNacimiento
         Me.Edad1 = edad
         Me.Telefono1 = telefono
         Me.Direccion1 = direccion
         Me.Correo1 = correo
         Me.Altura1 = altura
         Me.Peso1 = peso
-
     End Sub
 
     Public Property Id1 As Integer
@@ -58,15 +54,6 @@
         End Set
     End Property
 
-    Public Property FechaNacimiento1 As Date
-        Get
-            Return FechaNacimiento
-        End Get
-        Set(value As Date)
-            FechaNacimiento = value
-        End Set
-    End Property
-
     Public Property Edad1 As Integer
         Get
             Return Edad
@@ -76,11 +63,11 @@
         End Set
     End Property
 
-    Public Property Telefono1 As String
+    Public Property Telefono1 As Integer
         Get
             Return Telefono
         End Get
-        Set(value As String)
+        Set(value As Integer)
             Telefono = value
         End Set
     End Property
@@ -94,24 +81,6 @@
         End Set
     End Property
 
-    Public Property Altura1 As Double
-        Get
-            Return altura
-        End Get
-        Set(value As Double)
-            altura = value
-        End Set
-    End Property
-
-    Public Property Peso1 As Double
-        Get
-            Return peso
-        End Get
-        Set(value As Double)
-            peso = value
-        End Set
-    End Property
-
     Public Property Correo1 As String
         Get
             Return Correo
@@ -120,4 +89,25 @@
             Correo = value
         End Set
     End Property
+
+    Public Property Altura1 As Integer
+        Get
+            Return altura
+        End Get
+        Set(value As Integer)
+            altura = value
+        End Set
+    End Property
+
+    Public Property Peso1 As Integer
+        Get
+            Return peso
+        End Get
+        Set(value As Integer)
+            peso = value
+        End Set
+    End Property
+
+    ' Constructor con parámetros
+
 End Class
