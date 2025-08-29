@@ -2,19 +2,14 @@
 Public Class Respositorio_citas
     Private ReadOnly connectionString As String = ConfigurationManager.ConnectionStrings("Conexion").ConnectionString
 
-    Public Function createPaciente(pas As Paciente) As String
+    Public Function createPaciente(cit As Cita) As String
         Try
-            Dim query As String = "INSERT INTO Tabla_Paciente (Nombre, Apellidos, Edad, Telefono, Direccion, Correo, altura, peso) 
-            VALUES (@Nombre, @Apellidos, @Edad, @Telefono, @Direccion, @Correo, @altura, @peso )"
+            Dim query As String = "INSERT INTO Tabla_Paciente (Fecha_cita, Hora_cita, Area) 
+            VALUES (@Fecha_cita, @Hora_cita, @Area )"
             Dim parameters As New List(Of SqlParameter) From {
-                New SqlParameter("@Nombre", pas.Nombre1),
-                New SqlParameter("@Apellidos", pas.Apellidos1),
-                New SqlParameter("@Edad", pas.Edad1),
-                New SqlParameter("@Telefono", pas.Telefono1),
-                New SqlParameter("@Direccion", pas.Direccion1),
-                New SqlParameter("@Correo", pas.Correo1),
-                New SqlParameter("@altura", pas.Altura1),
-                New SqlParameter("@peso", pas.Peso1)
+                New SqlParameter("@Fecha_cita", cit.FechaCita1),
+                New SqlParameter("@Hora_Cita", cit.HoraCita1),
+                New SqlParameter("@area", cit.Area1)
             }
             Using connection As New SqlConnection(connectionString)
                 Using command As New SqlCommand(query, connection)
@@ -23,16 +18,16 @@ Public Class Respositorio_citas
                     command.ExecuteNonQuery()
                 End Using
             End Using
-            Return "Datos del paciente registrados con exito."
+            Return "Datos de cita registrados con exito."
         Catch ex As Exception
-            Return "Error al ingresar a el pasiente: " & ex.Message
+            Return "Error al ingresar a la cita: " & ex.Message
         End Try
     End Function
 
 
     Public Function EliminarPasiente(id As Integer) As String
         Try
-            Dim query As String = "DELETE FROM Tabla_Paciente WHERE Id = @iD"
+            Dim query As String = "DELETE FROM Tabla_Citas WHERE Id = @iD"
             Dim parameters As New List(Of SqlParameter) From {
                 New SqlParameter("@iD", id)
             }
@@ -48,9 +43,9 @@ Public Class Respositorio_citas
                     End If
                 End Using
             End Using
-            Return "Paciente eliminado exitosamente."
+            Return "Cita eliminado exitosamente."
         Catch ex As Exception
-            Return "Error al eliminar el Paciente: " & ex.Message
+            Return "Error al Cita el Paciente: " & ex.Message
         End Try
     End Function
 
@@ -60,9 +55,9 @@ Public Class Respositorio_citas
             Dim query As String = "UPDATE Tabla_Citas SET Fecha_Cita = @Fecha_Cita, Hora_cita = @Hora_Cita, Area = @area WHERE Id = @iD"
             Dim parameters As New List(Of SqlParameter) From {
                 New SqlParameter("@iD", Iddc),
-                New SqlParameter("@Fecha_cita", pas.Edad1),
-                New SqlParameter("@Hora_Cita", pas.Telefono1),
-                New SqlParameter("@area", pas.Direccion1),
+                New SqlParameter("@Fecha_cita", cit.FechaCita1),
+                New SqlParameter("@Hora_Cita", cit.HoraCita1),
+                New SqlParameter("@area", cit.Area1)
             }
             Using connection As New SqlConnection(connectionString)
                 Using command As New SqlCommand(query, connection)
