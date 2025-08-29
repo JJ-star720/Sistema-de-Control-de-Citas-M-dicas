@@ -1,7 +1,7 @@
 ﻿Public Class Paciente_usuario
-    Public Property Id As Integer
-    Public Property Email As String
-    Public Property Password As String
+    Public Property ID As Integer
+    Public Property EmailPas As String
+    Public Property PasswordPas As String
 
     ' Constructor por defecto
     Public Sub New()
@@ -9,7 +9,7 @@
 
     ' Método para validar el usuario (ejemplo simple)
     Public Function Validar() As Boolean
-        Return Not String.IsNullOrEmpty(Email) AndAlso Not String.IsNullOrEmpty(Password)
+        Return Not String.IsNullOrEmpty(EmailPas) AndAlso Not String.IsNullOrEmpty(PasswordPas)
     End Function
 
     ' Método para convertir un DataTable a un objeto Usuario
@@ -17,9 +17,9 @@
         If dataTable IsNot Nothing AndAlso dataTable.Rows.Count > 0 Then
             Dim row = dataTable.Rows(0)
             Return New Paciente_usuario() With {
-                .Id = Convert.ToInt32(row("ID")),
-                .Email = Convert.ToString(row("Email")),
-                .Password = Convert.ToString(row("Contraseña"))
+                .ID = Convert.ToInt32(row("ID")),
+                .EmailPas = Convert.ToString(row("EmailPas")),
+                .PasswordPas = Convert.ToString(row("ContraseñaPas"))
             }
         End If
         Return Nothing

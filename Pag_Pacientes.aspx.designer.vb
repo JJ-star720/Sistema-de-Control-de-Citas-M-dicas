@@ -95,6 +95,33 @@ Partial Public Class Pag_Pacientes
     Protected WithEvents SqlDataSource2 As Global.System.Web.UI.WebControls.SqlDataSource
 
     '''<summary>
+    '''Control IDAgenda.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents IDAgenda As Global.System.Web.UI.WebControls.HiddenField
+
+    '''<summary>
+    '''Control GvAgenda.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents GvAgenda As Global.System.Web.UI.WebControls.GridView
+
+    '''<summary>
+    '''Control SqlDataSource3.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents SqlDataSource3 As Global.System.Web.UI.WebControls.SqlDataSource
+
+    '''<summary>
     '''Control TxtNombre.
     '''</summary>
     '''<remarks>
@@ -156,4 +183,31 @@ Partial Public Class Pag_Pacientes
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents TxtHora_Cita As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''Control btnGuardar.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents btnGuardar As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''Control btnCancelar.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents btnCancelar As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''Control LblMensaje.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents LblMensaje As Global.System.Web.UI.WebControls.Label
 End Class

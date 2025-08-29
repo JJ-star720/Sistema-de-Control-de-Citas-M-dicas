@@ -89,6 +89,37 @@
    </div>
 
 
+          <asp:HiddenField ID="IDAgenda" runat="server" />
+         <div class="row mb-3">
+         <div class="col-md-4">
+
+    <h2>Lista de citas agendadas</h2>
+<asp:GridView ID="GvAgenda" runat="server" AllowPaging="True"
+     OnSelectedIndexChanged="GvAgenda_SelectedIndexChanged"
+     AllowSorting  ="True" AutoGenerateColumns="False" DataKeyNames="ID"
+     DataSourceID  ="SqlDataSource3" Width="819px">
+   <Columns>
+      <asp:CommandField ShowSelectButton="True"></asp:CommandField>
+      <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
+      <asp:BoundField DataField="NombrePas" HeaderText="NombrePas" SortExpression="NombrePas" />
+      <asp:BoundField DataField="ApellidosPas" HeaderText="ApellidosPas" SortExpression="ApellidosPas" />
+      <asp:BoundField DataField="Profecional" HeaderText="Profecional" SortExpression="Profecional" />
+      <asp:BoundField DataField="Especialidad" HeaderText="Especialidad" SortExpression="Especialidad" />
+      <asp:BoundField DataField="Fechacita" HeaderText="Fechacita" SortExpression="Fechacita" />
+      <asp:BoundField DataField="Horacita" HeaderText="Horacita" SortExpression="Horacita" />
+      <asp:BoundField DataField="AreaEs" HeaderText="AreaEs" SortExpression="AreaEs" />
+   </Columns>
+ </asp:GridView>
+
+     <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:Conexion %>"
+          SelectCommand="SELECT * FROM [Agendas]">
+     </asp:SqlDataSource>
+
+  </div>
+
+  </div>
+
+
 
 
      <h3>Formulario</h3>
@@ -126,5 +157,18 @@
     <div class="form-group mb-3">
       <label for="TxtHora_Cita">Hora de la cita</label>
       <asp:TextBox ID="TxtHora_Cita" runat="server" CssClass="form-control"></asp:TextBox>
+    </div>
+
+
+    <div class="form-group">
+      <asp:Button ID="btnGuardar" CssClass="btn btn-primary" runat="server" Text="Agendar" OnClick="btnGuardar_Click" />
+    </div>
+
+   <div class="form-group">
+      <asp:Button ID="btnCancelar" CssClass="btn btn-primary" runat="server" Text="Limpiar" OnClick="btnCancelar_Click" />
+   </div>
+
+    <div class="form-group mb-3">
+      <asp:Label ID="LblMensaje" runat="server" Text=""></asp:Label>
     </div>
 </asp:Content>

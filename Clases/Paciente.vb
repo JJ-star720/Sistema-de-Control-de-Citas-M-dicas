@@ -1,4 +1,5 @@
 ﻿Public Class Paciente
+    Inherits Doctor
     ' Atributos privados
     Private Id As Integer
     Private Nombre As String

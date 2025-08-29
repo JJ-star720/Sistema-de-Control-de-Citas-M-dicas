@@ -24,8 +24,8 @@ Public Class Gestion_Citas
                     .HoraCita1 = TxtHora_Cita.Text,
                     .Area1 = TxtArea.Text
                 }
-                dbCIT.createPaciente(Cit)
-                LblMensaje.Text = dbCIT.createPaciente(Cit)
+                dbCIT.createCita(Cit)
+                LblMensaje.Text = dbCIT.createCita(Cit)
                 GvCita.DataBind()
             End If
         Else
@@ -35,7 +35,7 @@ Public Class Gestion_Citas
                     .HoraCita1 = TxtHora_Cita.Text,
                     .Area1 = TxtArea.Text
             }
-            Dim resultado As String = dbCIT.UpdatePaciente(IDCit.Value, newCIt)
+            Dim resultado As String = dbCIT.UpdateCita(IDCit.Value, newCIt)
             LblMensaje.Text = resultado
             IDCit.Value = ""
             GvCita.DataBind()
@@ -71,7 +71,7 @@ Public Class Gestion_Citas
 
     Protected Sub GvCita_RowDeleting(sender As Object, e As GridViewDeleteEventArgs)
         Dim id As Integer = Convert.ToInt32(GvCita.DataKeys(e.RowIndex).Value)
-        Dim resultado As String = dbCIT.EliminarPasiente(id)
+        Dim resultado As String = dbCIT.EliminarCita(id)
         ' Mostrar el mensaje de resultado en la etiqueta LblMensaje
         LblMensaje.Text = resultado
         e.Cancel = True

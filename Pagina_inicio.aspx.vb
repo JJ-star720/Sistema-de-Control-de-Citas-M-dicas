@@ -43,8 +43,8 @@ Public Class Pagina_inicio
         Try
             Dim helper As New DATAHALPER()
             Dim parametros As New List(Of SqlParameter) From {
-            New SqlParameter("@Email", Pas.Email),
-            New SqlParameter("@Password", Pas.Password)
+            New SqlParameter("@Email", Pas.EmailPas),
+            New SqlParameter("@Password", Pas.PasswordPas)
         }
             ' Ejecutar la consulta para verificar al paciente
             Dim query As String = "SELECT * FROM Tabla_Pasientes_Clinica WHERE EMAIL = @Email AND Contraseña = @Password"
@@ -56,7 +56,7 @@ Public Class Pagina_inicio
                 ' Paciente encontrado, puedes redirigir o realizar otra acción
                 Pas = Pas.dtToPasUsuario(dataTable)
                 Session.Add("UsuarioId", Pas.Id.ToString())
-                Session.Add("UsuarioEmail", Pas.Email.ToString())
+                Session.Add("UsuarioEmail", Pas.EmailPas.ToString())
                 Return True
             Else
                 ' Paciente no encontrado, manejar el error
@@ -77,8 +77,8 @@ Public Class Pagina_inicio
         }
 
         Dim Pas As New Paciente_usuario() With {
-            .Email = txtEmail.Text,
-            .Password = txtContraseña.Text
+            .EmailPas = txtEmail.Text,
+            .PasswordPas = txtContraseña.Text
         }
 
         ' Validar el usuario
