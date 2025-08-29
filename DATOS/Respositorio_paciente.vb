@@ -33,9 +33,9 @@ Public Class Respositorio_paciente
 
     Public Function EliminarPasiente(id As Integer) As String
         Try
-            Dim query As String = "DELETE FROM Tabla_Paciente WHERE ID = @Id"
+            Dim query As String = "DELETE FROM Tabla_Paciente WHERE Id = @iD"
             Dim parameters As New List(Of SqlParameter) From {
-                New SqlParameter("@Id", id)
+                New SqlParameter("@iD", id)
             }
             Using connection As New SqlConnection(connectionString)
                 Using command As New SqlCommand(query, connection)
@@ -56,14 +56,14 @@ Public Class Respositorio_paciente
     End Function
 
 
-    Friend Function UpdateDoc(Iddc As String, pas As Paciente) As String
+    Friend Function UpdatePaciente(Iddc As String, pas As Paciente) As String
         Try
             Dim query As String = "UPDATE Tabla_Paciente SET Nombre = @Nombre,
             Apellidos = @Apellidos,FechaNacimiento = @FechaNacimiento, Edad = @Edad, Telefono = @Telefono,
             Direccion = @Direccion, Correo = @Correo, altura = @altura, 
-            peso = @peso WHERE Id = @ID"
+            peso = @peso WHERE Id = @iD"
             Dim parameters As New List(Of SqlParameter) From {
-                New SqlParameter("@Id", Iddc),
+                New SqlParameter("@iD", Iddc),
                 New SqlParameter("@Nombre", pas.Nombre1),
                 New SqlParameter("@Apellido", pas.Apellidos1),
                 New SqlParameter("@FechaNacimiento", pas.FechaNacimiento1),

@@ -1,33 +1,6 @@
 ﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="Gestion_Pasientes.aspx.vb" Inherits="Sistema_de_Control_de_Citas_Médicas.Gestion_Pasientes" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <asp:HiddenField ID="IDPass" runat="server" />
-    <div class="row mb-3">
-    <div class="col-md-4">
-        <h2>Pasientes</h2>
-    <asp:GridView ID="GvPasiente" runat="server" AllowPaging="True"
-         OnSelectedIndexChanged="GvPasiente_SelectedIndexChanged"
-         OnRowDeleting="GvPasiente_RowDeleting"
-         AllowSorting  ="True" AutoGenerateColumns="False" DataKeyNames="PasienteID"
-         DataSourceID  ="SqlDataSource" Width="819px">
-       <Columns>
-          <asp:CommandField ShowSelectButton="True"></asp:CommandField>
-          <asp:BoundField DataField="PasienteID" HeaderText="PasienteID" InsertVisible="False" ReadOnly="True" SortExpression="PasienteID" />
-          <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />
-          <asp:BoundField DataField="Apellidos" HeaderText="Apellidos" SortExpression="Apellidos" />
-          <asp:BoundField DataField="FechaNacimiento" HeaderText="FechaNacimiento" SortExpression="FechaNacimiento" />
-          <asp:BoundField DataField="Edad" HeaderText="Edad" SortExpression="Edad" />
-          <asp:BoundField DataField="Telefono" HeaderText="Telefono" SortExpression="Telefono" />
-          <asp:BoundField DataField="Direccion" HeaderText="Direccion" SortExpression="Direccion" />
-          <asp:BoundField DataField="Correo" HeaderText="Correo" SortExpression="Correo" />
-          <asp:BoundField DataField="altura" HeaderText="altura" SortExpression="altura" />
-          <asp:BoundField DataField="peso" HeaderText="peso" SortExpression="peso" />
-          <asp:CommandField ShowDeleteButton="True" />
-       </Columns>
-     </asp:GridView>
-
-   <asp:SqlDataSource ID="SqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:Conexion %>"
-    SelectCommand="SELECT * FROM [Tabla_Paciente]">
-   </asp:SqlDataSource>
+    
 
         <h3>Formulario</h3>
 
@@ -76,9 +49,6 @@
             <asp:TextBox ID="Txtpeso" runat="server" CssClass="form-control"></asp:TextBox>
          </div>
 
-         
-
-
         <div class="form-group">
             <asp:Button ID="btnGuardar" CssClass="btn btn-primary" runat="server" Text="Guardar" OnClick="btnGuardar_Click" />
         </div>
@@ -90,6 +60,40 @@
         <div class="form-group mb-3">
             <asp:Label ID="LblMensaje" runat="server" Text=""></asp:Label>
         </div>
+
+
+
+     <asp:HiddenField ID="IDPass" runat="server" />
+ <div class="row mb-3">
+ <div class="col-md-4">
+     <h2>Pasientes</h2>
+ <asp:GridView ID="GvPasiente" runat="server" AllowPaging="True"
+      OnSelectedIndexChanged="GvPasiente_SelectedIndexChanged"
+      OnRowDeleting="GvPasiente_RowDeleting"
+      AllowSorting  ="True" AutoGenerateColumns="False" DataKeyNames="Id"
+      DataSourceID  ="SqlDataSource" Width="819px">
+    <Columns>
+       <asp:CommandField ShowSelectButton="True"></asp:CommandField>
+       <asp:BoundField DataField="Id" HeaderText="Id"InsertVisible="False" ReadOnly="True" SortExpression="Id" />
+       <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />
+       <asp:BoundField DataField="Apellidos" HeaderText="Apellidos" SortExpression="Apellidos" />
+       <asp:BoundField DataField="FechaNacimiento" HeaderText="FechaNacimiento" SortExpression="FechaNacimiento" />
+       <asp:BoundField DataField="Edad" HeaderText="Edad" SortExpression="Edad" />
+       <asp:BoundField DataField="Telefono" HeaderText="Telefono" SortExpression="Telefono" />
+       <asp:BoundField DataField="Direccion" HeaderText="Direccion" SortExpression="Direccion" />
+       <asp:BoundField DataField="Correo" HeaderText="Correo" SortExpression="Correo" />
+       <asp:BoundField DataField="altura" HeaderText="altura" SortExpression="altura" />
+       <asp:BoundField DataField="peso" HeaderText="peso" SortExpression="peso" />
+       <asp:CommandField ShowDeleteButton="True" />
+    </Columns>
+  </asp:GridView>
+
+<asp:SqlDataSource ID="SqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:Conexion %>"
+ SelectCommand="SELECT * FROM [Tabla_Paciente]">
+</asp:SqlDataSource>
+
+
+
     </div>
 
   </div>
