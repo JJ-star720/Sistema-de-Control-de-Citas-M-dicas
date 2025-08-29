@@ -13,6 +13,7 @@ Public Class Respositorio_paciente
                 New SqlParameter("@Edad", pas.Edad1),
                 New SqlParameter("@Telefono", pas.Telefono1),
                 New SqlParameter("@Direccion", pas.Direccion1),
+                New SqlParameter("@Correo", pas.Correo1),
                 New SqlParameter("@altura", pas.Altura1),
                 New SqlParameter("@peso", pas.Peso1)
             }
@@ -68,6 +69,7 @@ Public Class Respositorio_paciente
                 New SqlParameter("@Edad", pas.Edad1),
                 New SqlParameter("@Telefono", pas.Telefono1),
                 New SqlParameter("@Direccion", pas.Direccion1),
+                New SqlParameter("@Correo", pas.Correo1),
                 New SqlParameter("@alrura", pas.Altura1),
                 New SqlParameter("@peso", pas.Peso1)
             }

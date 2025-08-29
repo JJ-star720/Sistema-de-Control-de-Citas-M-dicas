@@ -15,11 +15,6 @@
         </div>
 
         <div class="form-group mb-3">
-             <label for="TxtFechaNaciemnto">FechaNacimiento</label>
-             <asp:TextBox ID="TxtFechaNacimiento" runat="server" CssClass="form-control"></asp:TextBox>
-        </div>
-
-        <div class="form-group mb-3">
             <label for="TxtEdad">Edad</label>
             <asp:TextBox TextMode="Number" ID="TxtEdad" runat="server" CssClass="form-control"></asp:TextBox>
         </div>
@@ -68,16 +63,15 @@
  <div class="col-md-4">
      <h2>Pasientes</h2>
  <asp:GridView ID="GvPasiente" runat="server" AllowPaging="True"
-      OnSelectedIndexChanged="GvPasiente_SelectedIndexChanged"
-      OnRowDeleting="GvPasiente_RowDeleting"
-      AllowSorting  ="True" AutoGenerateColumns="False" DataKeyNames="Id"
+      OnSelectedIndexChanged="GvPaciente_SelectedIndexChanged"
+      OnRowDeleting="GvPaciente_RowDeleting"
+      AllowSorting  ="True" AutoGenerateColumns="False" DataKeyNames="ID"
       DataSourceID  ="SqlDataSource" Width="819px">
     <Columns>
        <asp:CommandField ShowSelectButton="True"></asp:CommandField>
-       <asp:BoundField DataField="Id" HeaderText="Id"InsertVisible="False" ReadOnly="True" SortExpression="Id" />
+       <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
        <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />
        <asp:BoundField DataField="Apellidos" HeaderText="Apellidos" SortExpression="Apellidos" />
-       <asp:BoundField DataField="FechaNacimiento" HeaderText="FechaNacimiento" SortExpression="FechaNacimiento" />
        <asp:BoundField DataField="Edad" HeaderText="Edad" SortExpression="Edad" />
        <asp:BoundField DataField="Telefono" HeaderText="Telefono" SortExpression="Telefono" />
        <asp:BoundField DataField="Direccion" HeaderText="Direccion" SortExpression="Direccion" />

@@ -56,4 +56,49 @@ Public Class Gestion_Pasientes
         Txtaltura.Text = ""
         Txtpeso.Text = ""
     End Sub
+
+
+    Protected Sub GvPaciente_SelectedIndexChanged(sender As Object, e As EventArgs)
+        Dim index = GvPasiente.SelectedIndex
+        Dim IdPas As Integer = Convert.ToInt32(GvPasiente.SelectedDataKey.Value)
+
+        If index >= 0 Then
+            Dim row = GvPasiente.Rows(index)
+            IDPass.Value = IdPas.ToString()
+            Dim pass As New Paciente With {
+                .Nombre1 = row.Cells(2).Text,
+                .Apellidos1 = row.Cells(3).Text,
+                .Edad1 = row.Cells(4).Text,
+                .Telefono1 = row.Cells(5).Text,
+                .Direccion1 = row.Cells(6).Text,
+                .Correo1 = row.Cells(7).Text,
+                .Altura1 = row.Cells(8).Text,
+                .Peso1 = row.Cells(9).Text
+            }
+
+
+            ' Asignar los valores de las celdas a los controles del formulario
+            TxtNombre.Text = pass.Nombre1
+
+            If row.Cells(3).Text.IsNullOrWhiteSpace Then
+                TxtApellidos.Text = ""
+            Else
+                TxtApellidos.Text = pass.Apellidos1
+                TxtCorreo.Text = pass.Correo1
+                TxtDireccion.Text = pass.Direccion1
+            End If
+
+            TxtTelefono.Text = pass.Telefono1
+
+        End If
+    End Sub
+
+    Protected Sub GvPaciente_RowDeleting(sender As Object, e As GridViewDeleteEventArgs)
+        Dim id As Integer = Convert.ToInt32(GvPasiente.DataKeys(e.RowIndex).Value)
+        Dim resultado As String = dbPASS.EliminarPasiente(id)
+        ' Mostrar el mensaje de resultado en la etiqueta LblMensaje
+        LblMensaje.Text = resultado
+        e.Cancel = True
+        GvPasiente.DataBind()
+    End Sub
 End Class

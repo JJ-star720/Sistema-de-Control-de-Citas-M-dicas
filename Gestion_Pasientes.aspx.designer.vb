@@ -32,15 +32,6 @@ Partial Public Class Gestion_Pasientes
     Protected WithEvents TxtApellidos As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''Control TxtFechaNacimiento.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents TxtFechaNacimiento As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
     '''Control TxtEdad.
     '''</summary>
     '''<remarks>
