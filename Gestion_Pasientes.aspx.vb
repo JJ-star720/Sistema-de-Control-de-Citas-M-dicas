@@ -101,4 +101,8 @@ Public Class Gestion_Pasientes
         e.Cancel = True
         GvPasiente.DataBind()
     End Sub
+
+    Protected Sub Back_Click(sender As Object, e As EventArgs)
+        Response.Redirect("Admin_acceso.aspx")
+    End Sub
 End Class

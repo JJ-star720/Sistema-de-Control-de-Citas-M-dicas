@@ -26,6 +26,10 @@
             <asp:Button ID="btnCancelar" CssClass="btn btn-primary" runat="server" Text="Limpiar" OnClick="btnCancelar_Click" />
         </div>
 
+        <div class="form-group">
+           <asp:Button ID="Back" CssClass="btn btn-primary" runat="server" Text="Volver" OnClick="Back_Click" />
+        </div>
+
         <div class="form-group mb-3">
             <asp:Label ID="LblMensaje" runat="server" Text=""></asp:Label>
         </div>
