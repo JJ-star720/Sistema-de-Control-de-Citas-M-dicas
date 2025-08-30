@@ -23,7 +23,7 @@ Public Class Gestion_Doctor
                     .Experiencia1 = Conversion.Val(TxtExperiencia.Text)
                 }
                 dbDOCTS.createDoc(Doc)
-                LblMensaje.Text = dbDOCTS.createDoc(Doc)
+                LblMensaje.Text = ""
                 GvDoctor.DataBind()
             End If
         Else

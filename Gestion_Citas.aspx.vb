@@ -25,7 +25,7 @@ Public Class Gestion_Citas
                     .Area1 = TxtArea.Text
                 }
                 dbCIT.createCita(Cit)
-                LblMensaje.Text = dbCIT.createCita(Cit)
+                LblMensaje.Text = ""
                 GvCita.DataBind()
             End If
         Else
