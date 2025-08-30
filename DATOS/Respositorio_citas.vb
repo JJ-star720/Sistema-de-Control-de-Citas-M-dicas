@@ -39,7 +39,7 @@ Public Class Respositorio_citas
 
                     Dim rowsAffected As Integer = command.ExecuteNonQuery()
                     If rowsAffected = 0 Then
-                        Return "No se encontró al paciente con el ID especificado."
+                        Return "No se encontró al Cita con el ID especificado."
                     End If
                 End Using
             End Using
@@ -141,11 +141,11 @@ Public Class Respositorio_citas
 
                     Dim rowsAffected As Integer = command.ExecuteNonQuery()
                     If rowsAffected = 0 Then
-                        Return "No se encontró al paciente con el ID especificado."
+                        Return "No se encontró al cita con el ID especificado."
                     End If
                 End Using
             End Using
-            Return "Cita eliminado exitosamente."
+            Return "Cita se Cancelo con exitosamente."
         Catch ex As Exception
             Return "Error al Cita el Paciente: " & ex.Message
         End Try

@@ -23,7 +23,7 @@ Public Class Gestion_Pasientes
                     .Peso1 = Conversion.Val(Txtpeso.Text)
                 }
                 dbPASS.createPaciente(pass)
-                LblMensaje.Text = dbPASS.createPaciente(pass)
+                LblMensaje.Text = ""
                 GvPasiente.DataBind()
             End If
         Else
