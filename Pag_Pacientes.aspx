@@ -101,8 +101,8 @@
         </div>
         <div class="card-body">
             <asp:GridView ID="GvAgenda" runat="server" CssClass="table table-bordered table-hover" AllowPaging="True"
-                OnSelectedIndexChanged="GvAgenda_SelectedIndexChanged" AllowSorting="True" AutoGenerateColumns="False"
-                DataKeyNames="ID" DataSourceID="SqlDataSource3">
+                OnSelectedIndexChanged="GvAgenda_SelectedIndexChanged" OnRowDeleting="GvAgenda_RowDeleting" AllowSorting="True" 
+                AutoGenerateColumns="False" DataKeyNames="ID" DataSourceID="SqlDataSource3">
                 <Columns>
                     <asp:CommandField ShowSelectButton="True" />
                     <asp:BoundField DataField="ID" HeaderText="ID" ReadOnly="True" />
@@ -113,6 +113,7 @@
                     <asp:BoundField DataField="Fechacita" HeaderText="Fecha" />
                     <asp:BoundField DataField="Horacita" HeaderText="Hora" />
                     <asp:BoundField DataField="AreaEs" HeaderText="Área médica" />
+                    <asp:CommandField ShowDeleteButton="True" />
                 </Columns>
             </asp:GridView>
 

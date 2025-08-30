@@ -121,6 +121,15 @@ Public Class Pag_Pacientes
         End If
     End Sub
 
+    Protected Sub GvAgenda_RowDeleting(sender As Object, e As GridViewDeleteEventArgs)
+        Dim id As Integer = Convert.ToInt32(GvAgenda.DataKeys(e.RowIndex).Value)
+        Dim resultado As String = dbCIT.EliminarAgenda(id)
+        ' Mostrar el mensaje de resultado en la etiqueta LblMensaje
+        LblMensaje.Text = resultado
+        e.Cancel = True
+        GvAgenda.DataBind()
+    End Sub
+
     Protected Sub btnGuardar_Click(sender As Object, e As EventArgs)
         If IDAgenda.Value.IsNullOrWhiteSpace Then
             If String.IsNullOrWhiteSpace(TxtFechaCita.Text) Then
