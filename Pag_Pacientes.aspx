@@ -1,174 +1,156 @@
 ﻿<%@ Page Title="Agendacion de cita " Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="Pag_Pacientes.aspx.vb" Inherits="Sistema_de_Control_de_Citas_Médicas.Pag_Pacientes" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-        <asp:HiddenField ID="IDPass" runat="server" />
-            <div class="row mb-3">
-            <div class="col-md-4">
-       <h2>Pasientes</h2>
+    <asp:HiddenField ID="IDPass" runat="server" />
 
-    <asp:GridView ID="GvPasiente" runat="server" AllowPaging="True"
-      OnSelectedIndexChanged="GvPaciente_SelectedIndexChanged"
-      AllowSorting  ="True" AutoGenerateColumns="False" DataKeyNames="ID"
-      DataSourceID  ="SqlDataSource" Width="819px">
+<div class="container py-4">
 
-        <Columns>
-           <asp:CommandField ShowSelectButton="True"></asp:CommandField>
-           <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
-           <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />
-           <asp:BoundField DataField="Apellidos" HeaderText="Apellidos" SortExpression="Apellidos" />
-           <asp:BoundField DataField="Edad" HeaderText="Edad" SortExpression="Edad" />
-           <asp:BoundField DataField="Telefono" HeaderText="Telefono" SortExpression="Telefono" />
-           <asp:BoundField DataField="Direccion" HeaderText="Direccion" SortExpression="Direccion" />
-           <asp:BoundField DataField="Correo" HeaderText="Correo" SortExpression="Correo" />
-           <asp:BoundField DataField="altura" HeaderText="altura" SortExpression="altura" />
-           <asp:BoundField DataField="peso" HeaderText="peso" SortExpression="peso" />
-        </Columns>
-    </asp:GridView>
+    <!-- 👨‍⚕️ Lista de pacientes -->
+    <div class="card mb-4 shadow-sm">
+        <div class="card-header bg-primary text-white">
+            <h5 class="mb-0">Lista de pacientes</h5>
+        </div>
+        <div class="card-body">
+            <asp:GridView ID="GvPasiente" runat="server" CssClass="table table-bordered table-hover" AllowPaging="True"
+                OnSelectedIndexChanged="GvPaciente_SelectedIndexChanged" AllowSorting="True" AutoGenerateColumns="False"
+                DataKeyNames="ID" DataSourceID="SqlDataSource">
+                <Columns>
+                    <asp:CommandField ShowSelectButton="True" />
+                    <asp:BoundField DataField="ID" HeaderText="ID" ReadOnly="True" />
+                    <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
+                    <asp:BoundField DataField="Apellidos" HeaderText="Apellidos" />
+                    <asp:BoundField DataField="Edad" HeaderText="Edad" />
+                    <asp:BoundField DataField="Telefono" HeaderText="Teléfono" />
+                    <asp:BoundField DataField="Direccion" HeaderText="Dirección" />
+                    <asp:BoundField DataField="Correo" HeaderText="Correo electrónico" />
+                    <asp:BoundField DataField="altura" HeaderText="Altura (cm)" />
+                    <asp:BoundField DataField="peso" HeaderText="Peso (kg)" />
+                </Columns>
+            </asp:GridView>
 
-    <asp:SqlDataSource ID="SqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:Conexion %>"
-        SelectCommand="SELECT * FROM [Tabla_Paciente]">
-    </asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:Conexion %>"
+                SelectCommand="SELECT * FROM [Tabla_Paciente]" />
+        </div>
+    </div>
 
-  </div>
+    <!-- 🗓️ Horarios disponibles para citas -->
+    <asp:HiddenField ID="IDCit" runat="server" />
+    <div class="card shadow-sm">
+        <div class="card-header bg-success text-white">
+            <h5 class="mb-0">Horarios disponibles para citas</h5>
+        </div>
+        <div class="card-body">
+            <asp:GridView ID="GvCita" runat="server" CssClass="table table-bordered table-hover" AllowPaging="True"
+                OnSelectedIndexChanged="GvCita_SelectedIndexChanged" AllowSorting="True" AutoGenerateColumns="False"
+                DataKeyNames="ID" DataSourceID="SqlDataSource1">
+                <Columns>
+                    <asp:CommandField ShowSelectButton="True" />
+                    <asp:BoundField DataField="ID" HeaderText="ID" ReadOnly="True" />
+                    <asp:BoundField DataField="Fecha_Cita" HeaderText="Fecha" />
+                    <asp:BoundField DataField="Hora_Cita" HeaderText="Hora" />
+                    <asp:BoundField DataField="Area" HeaderText="Área" />
+                </Columns>
+            </asp:GridView>
+
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Conexion %>"
+                SelectCommand="SELECT * FROM [Tabla_Cita]" />
+        </div>
+    </div>
+
 </div>
 
-         <asp:HiddenField ID="IDCit" runat="server" />
- <div class="row mb-3">
- <div class="col-md-4">
-     <h2>Horarios disponibles para citas</h2>
- <asp:GridView ID="GvCita" runat="server" AllowPaging="True"
-      OnSelectedIndexChanged="GvCita_SelectedIndexChanged"
-      AllowSorting  ="True" AutoGenerateColumns="False" DataKeyNames="ID"
-      DataSourceID  ="SqlDataSource1" Width="819px">
-    <Columns>
-       <asp:CommandField ShowSelectButton="True"></asp:CommandField>
-       <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
-       <asp:BoundField DataField="Fecha_Cita" HeaderText="Fecha_Cita" SortExpression="Fecha_Cita" />
-       <asp:BoundField DataField="Hora_Cita" HeaderText="Hora_Cita" SortExpression="Hora_Cita" />
-       <asp:BoundField DataField="Area" HeaderText="Area" SortExpression="Area" />
-    </Columns>
-  </asp:GridView>
-
-      <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Conexion %>"
-              SelectCommand ="SELECT * FROM [Tabla_Cita]">
-      </asp:SqlDataSource>
-
-    </div>
-  </div>
 
 
        <asp:HiddenField ID="IDDocts" runat="server" />
-  <div class="row mb-3">
-  <div class="col-md-4">
 
-     <h2>Lista de Doctores</h2>
- <asp:GridView ID="GvDoctor" runat="server" AllowPaging="True"
-      OnSelectedIndexChanged="GvDoctor_SelectedIndexChanged"
-      AllowSorting  ="True" AutoGenerateColumns="False" DataKeyNames="ID"
-      DataSourceID  ="SqlDataSource2" Width="819px">
-    <Columns>
-       <asp:CommandField ShowSelectButton="True"></asp:CommandField>
-       <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
-       <asp:BoundField DataField="NombreDc" HeaderText="NombreDc" SortExpression="NombreDc" />
-       <asp:BoundField DataField="ApellidosDc" HeaderText="ApellidosDc" SortExpression="ApellidosDc" />
-       <asp:BoundField DataField="EdadDc" HeaderText="EdadDc" SortExpression="EdadDc" />
-       <asp:BoundField DataField="TelefonoDc" HeaderText="TelefonoDc" SortExpression="TelefonoDc" />
-       <asp:BoundField DataField="DireccionDc" HeaderText="DireccionDc" SortExpression="DireccionDc" />
-       <asp:BoundField DataField="CorreoDc" HeaderText="CorreoDc" SortExpression="CorreoDc" />
-       <asp:BoundField DataField="Especialidad" HeaderText="Especialidad" SortExpression="Especialidad" />
-       <asp:BoundField DataField="Experiencia" HeaderText="Experiencia" SortExpression="Experiencia" />
-    </Columns>
-  </asp:GridView>
+<div class="container py-4">
 
-      <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Conexion %>"
-           SelectCommand="SELECT * FROM [Tabla_Doctor]">
-      </asp:SqlDataSource>
+    <!-- 👨‍⚕️ Lista de doctores -->
+    <div class="card mb-4 shadow-sm">
+        <div class="card-header bg-info text-white">
+            <h5 class="mb-0">Lista de doctores registrados</h5>
+        </div>
+        <div class="card-body">
+            <asp:GridView ID="GvDoctor" runat="server" CssClass="table table-bordered table-hover" AllowPaging="True"
+                OnSelectedIndexChanged="GvDoctor_SelectedIndexChanged" AllowSorting="True" AutoGenerateColumns="False"
+                DataKeyNames="ID" DataSourceID="SqlDataSource2">
+                <Columns>
+                    <asp:CommandField ShowSelectButton="True" />
+                    <asp:BoundField DataField="ID" HeaderText="ID" ReadOnly="True" />
+                    <asp:BoundField DataField="NombreDc" HeaderText="Nombre" />
+                    <asp:BoundField DataField="ApellidosDc" HeaderText="Apellidos" />
+                    <asp:BoundField DataField="EdadDc" HeaderText="Edad" />
+                    <asp:BoundField DataField="TelefonoDc" HeaderText="Teléfono" />
+                    <asp:BoundField DataField="DireccionDc" HeaderText="Dirección" />
+                    <asp:BoundField DataField="CorreoDc" HeaderText="Correo electrónico" />
+                    <asp:BoundField DataField="Especialidad" HeaderText="Especialidad" />
+                    <asp:BoundField DataField="Experiencia" HeaderText="Experiencia (años)" />
+                </Columns>
+            </asp:GridView>
 
-   </div>
-
-   </div>
-
-
-          <asp:HiddenField ID="IDAgenda" runat="server" />
-         <div class="row mb-3">
-         <div class="col-md-4">
-
-    <h2>Lista de citas agendadas</h2>
-<asp:GridView ID="GvAgenda" runat="server" AllowPaging="True"
-     OnSelectedIndexChanged="GvAgenda_SelectedIndexChanged"
-     AllowSorting  ="True" AutoGenerateColumns="False" DataKeyNames="ID"
-     DataSourceID  ="SqlDataSource3" Width="819px">
-   <Columns>
-      <asp:CommandField ShowSelectButton="True"></asp:CommandField>
-      <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
-      <asp:BoundField DataField="NombrePas" HeaderText="NombrePas" SortExpression="NombrePas" />
-      <asp:BoundField DataField="ApellidosPas" HeaderText="ApellidosPas" SortExpression="ApellidosPas" />
-      <asp:BoundField DataField="Profecional" HeaderText="Profecional" SortExpression="Profecional" />
-      <asp:BoundField DataField="Especialidad" HeaderText="Especialidad" SortExpression="Especialidad" />
-      <asp:BoundField DataField="Fechacita" HeaderText="Fechacita" SortExpression="Fechacita" />
-      <asp:BoundField DataField="Horacita" HeaderText="Horacita" SortExpression="Horacita" />
-      <asp:BoundField DataField="AreaEs" HeaderText="AreaEs" SortExpression="AreaEs" />
-   </Columns>
- </asp:GridView>
-
-     <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:Conexion %>"
-          SelectCommand="SELECT * FROM [Agendas]">
-     </asp:SqlDataSource>
-
-  </div>
-
-  </div>
-
-
-
-
-     <h3>Formulario</h3>
-
-    <div class="form-group mb-3">
-         <label for="TxtNombre">Nombre</label>
-         <asp:TextBox ID="TxtNombre" runat="server" CssClass="form-control"></asp:TextBox>
+            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Conexion %>"
+                SelectCommand="SELECT * FROM [Tabla_Doctor]" />
+        </div>
     </div>
 
-    <div class="form-group mb-3">
-        <label for="TxtApellidos">Apellidos</label>
-        <asp:TextBox ID="TxtApellidos" runat="server" CssClass="form-control"></asp:TextBox>
+    <!-- 📅 Lista de citas agendadas -->
+    <asp:HiddenField ID="IDAgenda" runat="server" />
+    <div class="card shadow-sm">
+        <div class="card-header bg-warning text-dark">
+            <h5 class="mb-0">Citas médicas agendadas</h5>
+        </div>
+        <div class="card-body">
+            <asp:GridView ID="GvAgenda" runat="server" CssClass="table table-bordered table-hover" AllowPaging="True"
+                OnSelectedIndexChanged="GvAgenda_SelectedIndexChanged" AllowSorting="True" AutoGenerateColumns="False"
+                DataKeyNames="ID" DataSourceID="SqlDataSource3">
+                <Columns>
+                    <asp:CommandField ShowSelectButton="True" />
+                    <asp:BoundField DataField="ID" HeaderText="ID" ReadOnly="True" />
+                    <asp:BoundField DataField="NombrePas" HeaderText="Nombre del paciente" />
+                    <asp:BoundField DataField="ApellidosPas" HeaderText="Apellidos" />
+                    <asp:BoundField DataField="Profecional" HeaderText="Profesional encargado" />
+                    <asp:BoundField DataField="Especialidad" HeaderText="Especialidad" />
+                    <asp:BoundField DataField="Fechacita" HeaderText="Fecha" />
+                    <asp:BoundField DataField="Horacita" HeaderText="Hora" />
+                    <asp:BoundField DataField="AreaEs" HeaderText="Área médica" />
+                </Columns>
+            </asp:GridView>
+
+            <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:Conexion %>"
+                SelectCommand="SELECT * FROM [Agendas]" />
+        </div>
     </div>
 
-   <div class="form-group mb-3">
-       <label for="TxtAreaEs">Area</label>
-      <asp:TextBox ID="TxtAreaEs" runat="server" CssClass="form-control"></asp:TextBox>
-   </div>
+</div>
 
-   <div class="form-group mb-3">
-       <label for="TxtProfecional">Profecinal encargado</label>
-       <asp:TextBox ID="TxtProfecional" runat="server" CssClass="form-control"></asp:TextBox>
-   </div>
 
-    <div class="form-group mb-3">
-       <label for="TxtEspecialidad">Especialidad</label>
-       <asp:TextBox ID="TxtEspecialidad" runat="server" CssClass="form-control"></asp:TextBox>
+<div class="container py-4">
+    <!-- 📝 Formulario de agendación -->
+    <div class="card shadow-sm mb-4">
+        <div class="card-header bg-primary text-white">
+            <h5 class="mb-0">Formulario de agendación de cita</h5>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <asp:TextBox ID="TxtNombre" runat="server" CssClass="form-control mb-3" placeholder="Nombre del paciente" />
+                    <asp:TextBox ID="TxtApellidos" runat="server" CssClass="form-control mb-3" placeholder="Apellidos del paciente" />
+                    <asp:TextBox ID="TxtAreaEs" runat="server" CssClass="form-control mb-3" placeholder="Área médica" />
+                    <asp:TextBox ID="TxtProfecional" runat="server" CssClass="form-control mb-3" placeholder="Profesional encargado" />
+                    <asp:TextBox ID="TxtEspecialidad" runat="server" CssClass="form-control mb-3" placeholder="Especialidad" />
+                    <asp:TextBox ID="TxtFechaCita" runat="server" CssClass="form-control mb-3" placeholder="Fecha de la cita" />
+                    <asp:TextBox ID="TxtHora_Cita" runat="server" CssClass="form-control mb-3" placeholder="Hora de la cita" />
+
+                    <div class="d-flex gap-2 mt-3">
+                        <asp:Button ID="btnGuardar" CssClass="btn btn-success" runat="server" Text="Agendar" OnClick="btnGuardar_Click" />
+                        <asp:Button ID="btnCancelar" CssClass="btn btn-warning" runat="server" Text="Limpiar" OnClick="btnCancelar_Click" />
+                    </div>
+
+                    <asp:Label ID="LblMensaje" runat="server" CssClass="mt-3 text-danger d-block" Text="" />
+                </div>
+            </div>
+        </div>
     </div>
+</div>
 
-    <div class="form-group mb-3">
-        <label for="TxtFechaCita">Fecha de cita</label>
-        <asp:TextBox ID="TxtFechaCita" runat="server" CssClass="form-control"></asp:TextBox>
-    </div>
-
-    <div class="form-group mb-3">
-      <label for="TxtHora_Cita">Hora de la cita</label>
-      <asp:TextBox ID="TxtHora_Cita" runat="server" CssClass="form-control"></asp:TextBox>
-    </div>
-
-
-    <div class="form-group">
-      <asp:Button ID="btnGuardar" CssClass="btn btn-primary" runat="server" Text="Agendar" OnClick="btnGuardar_Click" />
-    </div>
-
-   <div class="form-group">
-      <asp:Button ID="btnCancelar" CssClass="btn btn-primary" runat="server" Text="Limpiar" OnClick="btnCancelar_Click" />
-   </div>
-
-    <div class="form-group mb-3">
-      <asp:Label ID="LblMensaje" runat="server" Text=""></asp:Label>
-    </div>
 </asp:Content>

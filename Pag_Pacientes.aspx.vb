@@ -136,7 +136,7 @@ Public Class Pag_Pacientes
                     .Area1 = TxtAreaEs.Text
                 }
                 dbCIT.createAgenda(Cit)
-                LblMensaje.Text = dbCIT.createAgenda(Cit)
+                LblMensaje.Text = ""
                 GvAgenda.DataBind()
             End If
         Else

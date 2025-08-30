@@ -11,7 +11,7 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class Pagina_inicio
+Partial Public Class Registro
 
     '''<summary>
     '''Control txtEmail.
@@ -32,22 +32,22 @@ Partial Public Class Pagina_inicio
     Protected WithEvents txtContraseña As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''Control btnLogin.
+    '''Control RequiredFieldValidatorPass.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents btnLogin As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents RequiredFieldValidatorPass As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
-    '''Control Label1.
+    '''Control btnRegistrar.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents Label1 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents btnRegistrar As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
     '''Control lblError.

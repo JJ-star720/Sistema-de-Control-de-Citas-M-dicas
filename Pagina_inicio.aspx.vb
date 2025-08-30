@@ -76,25 +76,18 @@ Public Class Pagina_inicio
             .Password = txtContraseña.Text
         }
 
-
-
-        ' Validar el usuario
-        If admin.Validar And VerificarADMIN(admin) Then
-            Response.Redirect("Admin_acceso")
-        Else
-
-            lblError.Text = "Correo electrónico o contraseña inválidos."
-            lblError.Visible = True
-        End If
-    End Sub
-
-    Protected Sub BtnPas_Click(sender As Object, e As EventArgs)
         Dim Pas As New Paciente_usuario() With {
             .EmailPas = txtEmail.Text,
             .PasswordPas = txtContraseña.Text
         }
 
-        If Pas.Validar And Verificarpaciente(Pas) Then
+
+
+        ' Validar el usuario
+        If admin.Validar And VerificarADMIN(admin) Then
+            Response.Redirect("Admin_acceso")
+
+        ElseIf Pas.Validar And Verificarpaciente(Pas) Then
             Response.Redirect("Pag_Pacientes")
         Else
 
@@ -102,4 +95,6 @@ Public Class Pagina_inicio
             lblError.Visible = True
         End If
     End Sub
+
+
 End Class

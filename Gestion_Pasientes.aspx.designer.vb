@@ -122,15 +122,6 @@ Partial Public Class Gestion_Pasientes
     Protected WithEvents LblMensaje As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''Control IDPass.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents IDPass As Global.System.Web.UI.WebControls.HiddenField
-
-    '''<summary>
     '''Control GvPasiente.
     '''</summary>
     '''<remarks>
@@ -147,4 +138,13 @@ Partial Public Class Gestion_Pasientes
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents SqlDataSource As Global.System.Web.UI.WebControls.SqlDataSource
+
+    '''<summary>
+    '''Control IDPass.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents IDPass As Global.System.Web.UI.WebControls.HiddenField
 End Class

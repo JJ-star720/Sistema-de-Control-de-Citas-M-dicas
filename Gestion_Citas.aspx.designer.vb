@@ -77,15 +77,6 @@ Partial Public Class Gestion_Citas
     Protected WithEvents LblMensaje As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''Control IDCit.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents IDCit As Global.System.Web.UI.WebControls.HiddenField
-
-    '''<summary>
     '''Control GvCita.
     '''</summary>
     '''<remarks>
@@ -102,4 +93,13 @@ Partial Public Class Gestion_Citas
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents SqlDataSource As Global.System.Web.UI.WebControls.SqlDataSource
+
+    '''<summary>
+    '''Control IDCit.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents IDCit As Global.System.Web.UI.WebControls.HiddenField
 End Class
